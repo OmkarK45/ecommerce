@@ -1,8 +1,11 @@
 import { Layout, Header } from "components"
+import Carousel from "components/Carousel/Carousel"
 const App = () => {
   return (
     <>
       <Header />
+
+      <Carousel />
       <Layout>
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi

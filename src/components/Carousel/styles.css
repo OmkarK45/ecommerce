@@ -1,0 +1,15 @@
+:root {
+  --swiper-theme-color: #fff;
+}
+.swiper-container {
+  width: 500px;
+}
+
+.swiper-pagination {
+  bottom: 0;
+  padding-bottom: 10px;
+}
+
+.swiper-wrapper {
+  padding-inline-start: 0;
+}
