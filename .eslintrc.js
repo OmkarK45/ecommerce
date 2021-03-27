@@ -19,12 +19,11 @@ module.exports = {
     },
     sourceType: "module",
   },
-  plugins: ["babel", "react", "import", "prettier","react-hooks"],
+  plugins: ["babel", "react", "import", "react-hooks"],
   rules: {
     "import/no-duplicates": "error",
     "import/no-unresolved": "error",
     "import/named": "error",
-    "prettier/prettier": "error",
     "react/no-typos": "error",
     "react/no-unused-state": "error",
     "react/jsx-no-bind": "error",

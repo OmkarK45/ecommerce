@@ -4,3 +4,6 @@ stats.json
 .DS_Store
 # jetbrains
 .idea
+.env.development
+.env.production
+.env.staging
