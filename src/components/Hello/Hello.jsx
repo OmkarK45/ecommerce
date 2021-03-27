@@ -1,3 +1,3 @@
 export default function Hello() {
-  return <h1>OK</h1>
+  return <div className="bg-[#1da1f1] text-5xl font-bold">OK</div>
 }
