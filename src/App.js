@@ -1,5 +1,11 @@
+import { Hello } from "components"
+
 const App = () => {
-  return <h1 className="bg-[#1da1f1]">Hi ok</h1>
+  return (
+    <div>
+      <Hello />
+    </div>
+  )
 }
 
 export default App

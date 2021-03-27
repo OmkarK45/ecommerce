@@ -22,7 +22,7 @@ module.exports = {
   plugins: ["babel", "react", "import", "react-hooks"],
   rules: {
     "import/no-duplicates": "error",
-    "import/no-unresolved": "error",
+    "import/no-unresolved": "off",
     "import/named": "error",
     "react/no-typos": "error",
     "react/no-unused-state": "error",
