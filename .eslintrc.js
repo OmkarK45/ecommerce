@@ -33,6 +33,7 @@ module.exports = {
     "react/react-in-jsx-scope": "off",
     "array-callback-return": "error",
     "consistent-return": "error",
+    "react/prop-types": "off",
     "babel/no-invalid-this": "error",
     "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
   },
