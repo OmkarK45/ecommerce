@@ -1,14 +1,22 @@
 export const imgLinks = [
   {
-    url: "https://unsplash.it/1280/720",
+    url:
+      "https://rukminim1.flixcart.com/flap/3376/560/image/0f483a151f2014a8.jpg?q=50",
   },
   {
-    url: "https://unsplash.it/1280/720",
+    url:
+      "https://rukminim1.flixcart.com/flap/3376/560/image/d7d8ab8d0b46fa22.jpg?q=50",
   },
   {
-    url: "https://unsplash.it/1280/720",
+    url:
+      "https://rukminim1.flixcart.com/flap/3376/560/image/d7d8ab8d0b46fa22.jpg?q=50",
   },
   {
-    url: "https://unsplash.it/1280/720",
+    url:
+      "https://rukminim1.flixcart.com/flap/3376/560/image/0f483a151f2014a8.jpg?q=50",
+  },
+  {
+    url:
+      "https://rukminim1.flixcart.com/flap/3376/560/image/d7d8ab8d0b46fa22.jpg?q=50",
   },
 ]

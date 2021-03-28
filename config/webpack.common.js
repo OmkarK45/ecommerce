@@ -4,8 +4,6 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const CopyWebpackPlugin = require("copy-webpack-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin") // extract css to files
-const tailwindcss = require("tailwindcss")
-const autoprefixer = require("autoprefixer") // help tailwindcss to work
 
 module.exports = {
   // Where webpack looks to start building the bundle
@@ -65,21 +63,8 @@ module.exports = {
 
       // Styles: Inject CSS into the head with source maps
       {
-        test: /\.(css|scss|sass)$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          "css-loader",
-          "sass-loader",
-          {
-            loader: "postcss-loader", // postcss loader needed for tailwindcss
-            options: {
-              postcssOptions: {
-                ident: "postcss",
-                plugins: [tailwindcss, autoprefixer],
-              },
-            },
-          },
-        ],
+        test: /\.(css)$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
       },
 
       {

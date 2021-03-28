@@ -9,3 +9,12 @@ Project #2 for neog
 - setup axios
 - setup routing
 - create landing page
+
+--> Shop Routes
+/shop -> Store Front
+/shop/products -> List of all products
+/shop/products/:id -> A particular product
+
+--> Other Routes
+/user/cart -> Cart
+/user/wishlist -> Wishlist
