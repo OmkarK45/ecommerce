@@ -24,7 +24,7 @@ export default function Header() {
             <Searchbar />
             <div className="hidden lg:relative lg:z-10 lg:ml-4 lg:flex lg:items-center">
               <Link>
-                <HiOutlineShoppingCart className="w-6 h-6" />
+                <HiOutlineShoppingCart className="w-6 h-6 text-gray-600" />
               </Link>
             </div>
             <div className="relative z-10 flex items-center lg:hidden">
