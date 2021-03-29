@@ -1,3 +1,5 @@
+import { HiOutlineShoppingCart } from "react-icons/hi"
+
 export default function ProductCard() {
   return (
     <div className="shadow rounded overflow-hidden w-full sm:w-48 md:w-52 bg-white mt-4 pb-4">
@@ -24,6 +26,7 @@ export default function ProductCard() {
             type="button"
             className="inline-flex items-center justify-center px-2.5 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
           >
+            <HiOutlineShoppingCart className="mr-2 h-4 w-4" />
             Add to Cart
           </button>
         </div>
