@@ -1,8 +1,10 @@
 import { useState } from "react"
 import clsx from "clsx"
+import { NavLink } from "react-router-dom"
 import { HiOutlineX, HiMenu } from "react-icons/hi"
 import { RiShoppingBasketFill } from "react-icons/ri"
 import Searchbar from "components/ui/Searchbar"
+import { categories } from "../../../common/defines"
 export default function Header() {
   const [open, setOpen] = useState(false)
   function handleMenu() {
@@ -33,38 +35,34 @@ export default function Header() {
             </div>
           </div>
           <nav className="hidden lg:py-2 lg:flex lg:space-x-8">
-            {/* Current: "bg-gray-100 text-gray-900", Default: "text-gray-900 hover:bg-gray-50 hover:text-gray-900" */}
-            <a
-              href="/"
-              className="bg-gray-100 text-gray-900 rounded-md py-2 px-3 inline-flex items-center text-sm font-medium"
-            >
-              Dashboard
-            </a>
-
-            <a
-              href="/"
-              className="text-gray-900 hover:bg-gray-50 hover:text-gray-900 rounded-md py-2 px-3 inline-flex items-center text-sm font-medium"
-            >
-              Team
-            </a>
+            {categories.map((category) => {
+              return (
+                <NavLink
+                  key={category}
+                  to={`/${category}`}
+                  activeClassName="bg-gray-100 text-gray-900"
+                  className="text-gray-900 hover:bg-gray-50 hover:text-gray-900 rounded-md py-2 px-3 inline-flex items-center text-sm font-medium"
+                >
+                  {category.toUpperCase()}
+                </NavLink>
+              )
+            })}
           </nav>
         </div>
         <nav className={clsx(!open && "hidden lg:hidden", open && "block")}>
           <div className="pt-2 pb-3 px-2 space-y-1">
-            {/* Current: "bg-gray-100 text-gray-900", Default: "text-gray-900 hover:bg-gray-50 hover:text-gray-900" */}
-            <a
-              href="/"
-              className="bg-gray-100 text-gray-900 block rounded-md py-2 px-3 text-base font-medium"
-            >
-              Dashboard
-            </a>
-
-            <a
-              href="/"
-              className="text-gray-900 hover:bg-gray-50 hover:text-gray-900 block rounded-md py-2 px-3 text-base font-medium"
-            >
-              Team
-            </a>
+            {categories.map((category) => {
+              return (
+                <NavLink
+                  key={category}
+                  to={`/${category}`}
+                  activeClassName="bg-gray-100 text-gray-900"
+                  className="text-gray-900 hover:bg-gray-50 hover:text-gray-900  block rounded-md py-2 px-3 text-base font-medium"
+                >
+                  {category[0].toUpperCase() + category.slice(1)}
+                </NavLink>
+              )
+            })}
           </div>
         </nav>
       </header>
