@@ -1,4 +1,5 @@
-import { HiOutlineShoppingCart, HiStar } from "react-icons/hi"
+import { Button, Badge } from "components/ui"
+import { HiOutlineShoppingCart } from "react-icons/hi"
 
 export default function ProductDetail() {
   return (
@@ -27,26 +28,16 @@ export default function ProductDetail() {
               <p className="text-2xl font-bold">Rs. 13,999</p>
               <p className="text-gray-500 line-through">Rs. 19,999</p>
             </div>
-            <div>
-              <span className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-yellow-100 text-green-800">
-                <HiStar className="text-lg" /> 4.5/5
-              </span>
-            </div>
+            <Badge rating="4.5" />
           </div>
           <div className="flex flex-col md:space-x-2 md:flex-row lg:flex-row justify-center">
-            <button
-              type="button"
-              className="inline-flex flex-1 w-full justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded shadow-sm text-white bg-yellow-600 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
-            >
+            <Button size="md" variant="primary" fullWidth>
               Buy Now
-            </button>
-            <button
-              type="button"
-              className="inline-flex mt-2 sm:mt-0 flex-1 items-center justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
-            >
+            </Button>
+            <Button size="md" fullWidth>
               <HiOutlineShoppingCart className="mr-2 h-4 w-4" />
               Add to Cart
-            </button>
+            </Button>
           </div>
         </div>
       </div>

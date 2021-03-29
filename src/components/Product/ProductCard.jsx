@@ -1,3 +1,4 @@
+import Button from "components/ui/Button/Button"
 import { HiOutlineShoppingCart } from "react-icons/hi"
 
 export default function ProductCard() {
@@ -16,19 +17,13 @@ export default function ProductCard() {
           <p className="text-gray-500 line-through text-sm">Rs.19,999</p>
         </div>
         <div className="flex flex-col space-y-2">
-          <button
-            type="button"
-            className="inline-flex justify-center items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-yellow-600 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
-          >
+          <Button variant="primary" size="sm">
             Buy Now
-          </button>
-          <button
-            type="button"
-            className="inline-flex items-center justify-center px-2.5 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
-          >
+          </Button>
+          <Button size="sm">
             <HiOutlineShoppingCart className="mr-2 h-4 w-4" />
-            Add to Cart
-          </button>
+            Add To Cart
+          </Button>
         </div>
       </div>
     </div>

@@ -4,13 +4,13 @@ const VARIANTS = {
   primary: {
     base: "border-transparent text-white focus:outline-none",
     active:
-      "bg-indigo-600 hover:bg-indigo-500 focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700",
-    disabled: "bg-indigo-400",
+      "bg-yellow-600 hover:bg-yellow-500 focus:shadow-outline-yellow focus:border-yellow-700 active:bg-yellow-700",
+    disabled: "bg-yellow-400",
   },
   default: {
     base: "border-gray-300",
     active:
-      "bg-white text-gray-700 hover:text-gray-500 focus:border-blue-300 focus:shadow-outline",
+      "bg-white text-gray-700 focus:border-gray-300 focus:shadow-outline hover:bg-gray-50 focus:outline-none ",
     disabled: "bg-gray-100",
   },
   danger: {
@@ -21,19 +21,28 @@ const VARIANTS = {
   },
 }
 
+const SIZES = {
+  sm: "px-2.5 py-1.5 text-sm",
+  md: "px-3 py-2 text-base",
+  lg: "px-4 py-2 text-lg",
+}
+
 export default function Button({
   className,
   variant = "default",
+  size = "sm",
   fullWidth,
   ...props
 }) {
   const variantStyles = VARIANTS[variant] || VARIANTS.default
+  const sizeStyles = SIZES[size] || SIZES.sm
   return (
     <button
       type="button"
       className={clsx(
-        "shadow-sm relative inline-flex items-center px-4 py-2 border text-base leading-6 rounded-md transition ease-in-out duration-150 focus:outline-none",
+        "shadow-sm relative inline-flex items-center justify-center border   rounded transition ease-in-out duration-150 focus:outline-none",
         variantStyles.base,
+        sizeStyles,
         props?.disabled && "cursor-default",
         props?.disabled ? variantStyles.disabled : variantStyles.active,
         fullWidth && "w-full text-center justify-center",
