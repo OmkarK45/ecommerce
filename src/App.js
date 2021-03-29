@@ -1,8 +1,6 @@
-import { Header } from "components"
+import { Header, Layout } from "components"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
-import { Home, NotFound } from "./pages"
-import Layout from "./components/Layout/Layout"
-import Product from "./pages/Product"
+import { Home, NotFound, Product, Cart } from "./pages"
 
 export default function App() {
   return (
@@ -13,6 +11,7 @@ export default function App() {
           <Route path="/" exact component={Home} />
           <Layout>
             <Route path="/product" exact component={Product} />
+            <Route path="/cart" exact component={Cart} />
           </Layout>
           <Route path="*" component={NotFound} />
         </Switch>

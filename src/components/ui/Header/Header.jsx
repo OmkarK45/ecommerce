@@ -18,12 +18,14 @@ export default function Header() {
           <div className="relative h-16 flex justify-between">
             <div className="relative z-10 px-2 flex lg:px-0">
               <div className="flex-shrink-0 flex items-center">
-                <Logo />
+                <Link to="/">
+                  <Logo />
+                </Link>
               </div>
             </div>
             <Searchbar />
             <div className="hidden lg:relative lg:z-10 lg:ml-4 lg:flex lg:items-center">
-              <Link>
+              <Link to="/cart">
                 <HiOutlineShoppingCart className="w-6 h-6 text-gray-600" />
               </Link>
             </div>
