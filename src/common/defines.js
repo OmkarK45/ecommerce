@@ -5,3 +5,22 @@ export const categories = [
   "men clothing",
   "women clothing",
 ]
+
+export const sidebarLinks = [
+  {
+    to: "/category/electronics",
+    label: "Electronics",
+  },
+  {
+    to: "/category/jewellery",
+    label: "Jewellery",
+  },
+  {
+    to: "/category/men-clothing",
+    label: "Men Clothing",
+  },
+  {
+    to: "/category/women-clothing",
+    label: "Women Clothing",
+  },
+]

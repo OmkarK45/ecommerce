@@ -1,6 +1,7 @@
 import { Header, Layout } from "components"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import { Home, NotFound, Product, Cart } from "./pages"
+import ProductDetail from "./components/Product/ProductDetail"
 
 export default function App() {
   return (
@@ -12,8 +13,9 @@ export default function App() {
           <Layout>
             <Route path="/product" exact component={Product} />
             <Route path="/cart" exact component={Cart} />
+            <Route path="/productdetail" exact component={ProductDetail} />
+            <Route path="*" component={NotFound} />
           </Layout>
-          <Route path="*" component={NotFound} />
         </Switch>
       </Router>
     </>

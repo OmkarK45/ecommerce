@@ -1,13 +1,31 @@
+import VerticalNav from "components/Layout/VerticalNav"
+import ProductCardSkeleton from "components/ui/Placeholder/ProductCardSkeleton"
 import ProductCard from "./ProductCard"
-
-export default function ProductLayout() {
+import { sidebarLinks as links } from "./../../common/defines"
+export default function ProductLayout({ loading, productList }) {
   return (
-    <div className="container mx-auto flex flex-col md:flex-row md:space-x-2 flex-wrap ">
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
+    <div className="flex gap-7">
+      <div className="hidden md:block">
+        <VerticalNav heading="Departments" links={links} />
+      </div>
+      <div className="flex flex-wrap lg:justify-between -mx-2 overflow-hidden sm:-mx-1 md:-mx-2 lg:-mx-2 xl:-mx-2 gap-4">
+        {loading ? (
+          <>
+            <ProductCardSkeleton />
+            <ProductCardSkeleton />
+            <ProductCardSkeleton />
+            <ProductCardSkeleton />
+            <ProductCardSkeleton />
+          </>
+        ) : (
+          <>
+            {productList &&
+              productList.map((product) => {
+                return <ProductCard key={product.id} product={product} />
+              })}
+          </>
+        )}
+      </div>
     </div>
   )
 }

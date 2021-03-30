@@ -19,13 +19,18 @@ export default function Home() {
     }
     fetch()
   }, [shopDispatch])
-
+  console.log(shop)
   return (
     <>
       <Carousel />
+      {console.log(shop?.products?.loading)}
+      {/* {JSON.stringify(shop)} */}
       <Layout>
         <SectionHeader title="Latest Arrivals" />
-        <ProductLayout />
+        <ProductLayout
+          loading={shop?.products?.loading}
+          productList={shop?.products?.data}
+        />
       </Layout>
     </>
   )
