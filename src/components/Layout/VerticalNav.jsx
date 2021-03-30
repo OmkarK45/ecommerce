@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom"
 
 export default function VerticalNav({ heading, links }) {
-  console.log(links)
   return (
     <div>
       <h3 className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">

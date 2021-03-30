@@ -14,8 +14,8 @@ export default function App() {
             <Route path="/product" exact component={Product} />
             <Route path="/cart" exact component={Cart} />
             <Route path="/productdetail" exact component={ProductDetail} />
-            <Route path="*" component={NotFound} />
           </Layout>
+          <Route path="*" component={NotFound} />
         </Switch>
       </Router>
     </>

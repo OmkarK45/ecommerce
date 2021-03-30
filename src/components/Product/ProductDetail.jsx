@@ -9,7 +9,7 @@ export default function ProductDetail() {
           <img
             src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
             alt="Product Name goes here"
-            className="w-1/2 mx-auto border border-black h-full"
+            className="w-1/2 mx-auto  h-full"
           />
         </div>
         <div className="flex flex-1 flex-col justify-center space-y-3">

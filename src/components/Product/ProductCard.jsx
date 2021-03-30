@@ -1,8 +1,15 @@
+/* eslint-disable react/jsx-no-bind */
 import Button from "components/ui/Button/Button"
+import { useCart } from "../../context/cartContext"
 import { HiOutlineShoppingBag, HiOutlineShoppingCart } from "react-icons/hi"
+import { handleAddToCart } from "./../../context/actions/cartActions"
 
 export default function ProductCard({ product }) {
-  console.log(product)
+  const { dispatch: cartDispatch } = useCart()
+  function addToCart(product) {
+    console.log(product.id)
+    cartDispatch(handleAddToCart(product))
+  }
   return (
     <div className="flex flex-col justify-between shadow rounded overflow-hidden w-full sm:w-48 md:w-56 bg-white  pb-4 justify-self-start">
       <img
@@ -26,7 +33,7 @@ export default function ProductCard({ product }) {
         <Button variant="primary" size="sm">
           <HiOutlineShoppingBag className="mr-2 h-4 w-4" /> Buy Now
         </Button>
-        <Button size="sm">
+        <Button onClick={() => addToCart(product)} size="sm">
           <HiOutlineShoppingCart className="mr-2 h-4 w-4" />
           Add To Cart
         </Button>

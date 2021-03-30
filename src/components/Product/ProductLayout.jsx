@@ -2,7 +2,11 @@ import VerticalNav from "components/Layout/VerticalNav"
 import ProductCardSkeleton from "components/ui/Placeholder/ProductCardSkeleton"
 import ProductCard from "./ProductCard"
 import { sidebarLinks as links } from "./../../common/defines"
-export default function ProductLayout({ loading, productList }) {
+export default function ProductLayout({ loading, productList, errorStatus }) {
+  if (errorStatus) {
+    return <div>Sorry something went wrong. We are sorry about it</div>
+  }
+
   return (
     <div className="flex gap-7">
       <div className="hidden md:block">

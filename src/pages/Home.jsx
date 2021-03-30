@@ -7,10 +7,12 @@ import { useEffect } from "react"
 
 import { fetchProductsSuccess } from "../context/actions/shopActions"
 import { useShop } from "../context/shopContext"
+import { useCart } from "../context/cartContext"
 
 export default function Home() {
   // eslint-disable-next-line no-unused-vars
   const { state: shop, dispatch: shopDispatch } = useShop()
+  const { state: cart } = useCart()
   useEffect(() => {
     const fetch = async () => {
       await axios
@@ -19,17 +21,16 @@ export default function Home() {
     }
     fetch()
   }, [shopDispatch])
-  console.log(shop)
+  console.log({ cart })
   return (
     <>
       <Carousel />
-      {console.log(shop?.products?.loading)}
-      {/* {JSON.stringify(shop)} */}
       <Layout>
         <SectionHeader title="Latest Arrivals" />
         <ProductLayout
           loading={shop?.products?.loading}
           productList={shop?.products?.data}
+          errorStatus={shop?.products?.error}
         />
       </Layout>
     </>
