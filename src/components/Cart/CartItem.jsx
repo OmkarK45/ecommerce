@@ -41,7 +41,7 @@ export default function CartItem({
               <input
                 type="text"
                 value={product.quantity}
-                className="w-6 pl-2"
+                className="w-10 px-2"
               />
               <Button onClick={() => handleDecrement(product)}>-</Button>
             </div>

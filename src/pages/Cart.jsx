@@ -29,6 +29,7 @@ export default function Cart() {
     console.log(product)
     if (product.quantity === 1) {
       cartDispatch(handleRemoveFromCart(product))
+      notify("Item removed from cart")
     } else {
       cartDispatch(handleDecreaseQuantity(product))
     }
