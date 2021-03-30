@@ -3,7 +3,7 @@ export default function Checkout() {
   return (
     <div className="lg:sticky w-full md:w-1/2 lg:w-1/3 bg-white border border-gray-300 overflow-hidden rounded-md">
       <ul className="divide-y divide-gray-300" data-todo-x-max="1">
-        <li className="px-6 py-4">
+        <div className="px-6 py-4">
           <h1 className="text-base font-semibold uppercase">
             Price Details (1 item)
           </h1>
@@ -42,7 +42,7 @@ export default function Checkout() {
               Checkout
             </Button>
           </li>
-        </li>
+        </div>
       </ul>
     </div>
   )
