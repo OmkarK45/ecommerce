@@ -1,21 +1,28 @@
 import { Header, Layout } from "components"
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import { Toaster } from "react-hot-toast"
+import { BrowserRouter as Router, Switch } from "react-router-dom"
 import { Home, NotFound, Product, Cart } from "./pages"
 import ProductDetail from "./components/Product/ProductDetail"
+import FancyRoute from "./components/Route/Route"
 
 export default function App() {
   return (
     <>
+      <Toaster position="bottom-center" reverseOrder={false} />
       <Router>
         <Header />
         <Switch>
-          <Route path="/" exact component={Home} />
+          <FancyRoute path="/" exact component={Home} />
           <Layout>
-            <Route path="/product" exact component={Product} />
-            <Route path="/cart" exact component={Cart} />
-            <Route path="/productdetail" exact component={ProductDetail} />
+            <FancyRoute path="/product" exact component={Product} />
+            <FancyRoute path="/cart" exact component={Cart} />
+            <FancyRoute
+              path="/product/:id/:slug"
+              exact
+              component={ProductDetail}
+            />
           </Layout>
-          <Route path="*" component={NotFound} />
+          <FancyRoute path="*" component={NotFound} />
         </Switch>
       </Router>
     </>

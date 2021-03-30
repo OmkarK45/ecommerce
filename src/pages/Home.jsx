@@ -6,8 +6,8 @@ import SectionHeader from "components/ui/Section/SectionHeader"
 import { useEffect } from "react"
 
 import { fetchProductsSuccess } from "../context/actions/shopActions"
-import { useShop } from "../context/shopContext"
 import { useCart } from "../context/cartContext"
+import { useShop } from "../context/shopContext"
 
 export default function Home() {
   // eslint-disable-next-line no-unused-vars

@@ -1,14 +1,17 @@
 /* eslint-disable react/jsx-no-bind */
 import Button from "components/ui/Button/Button"
-import { useCart } from "../../context/cartContext"
 import { HiOutlineShoppingBag, HiOutlineShoppingCart } from "react-icons/hi"
+import toast from "react-hot-toast"
+import { useCart } from "../../context/cartContext"
 import { handleAddToCart } from "./../../context/actions/cartActions"
 
 export default function ProductCard({ product }) {
   const { dispatch: cartDispatch } = useCart()
+  const notify = (message) => toast.success(message)
   function addToCart(product) {
     console.log(product.id)
     cartDispatch(handleAddToCart(product))
+    notify("Product Added to Cart")
   }
   return (
     <div className="flex flex-col justify-between shadow rounded overflow-hidden w-full sm:w-48 md:w-56 bg-white  pb-4 justify-self-start">

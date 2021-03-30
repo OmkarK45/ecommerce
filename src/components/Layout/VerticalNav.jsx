@@ -20,6 +20,9 @@ export default function VerticalNav({ heading, links }) {
             )
           })}
       </div>
+      <div className=" mt-4 flex justify-center items-center">
+        <p className="text-gray-500 text-xs">&copy; 2021, Doge Mart.</p>
+      </div>
     </div>
   )
 }
