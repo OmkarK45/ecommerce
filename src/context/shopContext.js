@@ -1,13 +1,13 @@
 import { shopReducer } from "./reducers/shopReducer"
 
-const { createContext, useReducer, useContext } = require("react")
-
+import { createContext, useReducer, useContext } from "react"
 const ShopContext = createContext()
 const initialState = {
   products: {
     loading: true,
     data: [],
     error: false,
+    sort: null,
   },
 }
 export const ShopProvider = ({ children }) => {

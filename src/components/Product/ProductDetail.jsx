@@ -1,7 +1,23 @@
 import { Button, Badge } from "components/ui"
 import { HiOutlineShoppingBag, HiOutlineShoppingCart } from "react-icons/hi"
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+import axios from "axios"
 
 export default function ProductDetail() {
+  const [product, setProduct] = useState({})
+  const { id } = useParams()
+
+  useEffect(() => {
+    const fetch = async () => {
+      await axios
+        .get("https://fakestoreapi.com/products/" + id)
+        .then((res) => setProduct(res.data))
+        .catch((err) => console.log(err))
+    }
+    fetch()
+  }, [id])
+  console.log({ product })
   return (
     <div className="container rounded shadow bg-white mx-auto px-4 py-4 sm:px-6 lg:px-8 mb-10 ">
       <div className="flex flex-col space-y-3 md:flex-row">

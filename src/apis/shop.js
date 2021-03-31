@@ -7,7 +7,7 @@ export const fetchProductsData = () => {
 }
 
 export const fetchSingleProductData = (query) => {
-  const endpoint = `${API_URL}/products/${query.product_id}`
+  const endpoint = `${API_URL}/products/${query.id}`
   return axiosService.get(endpoint)
 }
 

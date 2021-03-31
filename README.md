@@ -3,6 +3,7 @@
 Project #2 for neog
 @TODO
 
+- Sidebar
 - Fix theme colors
 - Create ui elements -> buttons, cards, nav, modal and footer, layout
 - setup mirage js

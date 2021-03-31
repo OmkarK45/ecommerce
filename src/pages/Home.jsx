@@ -8,10 +8,11 @@ import { useEffect } from "react"
 import { fetchProductsSuccess } from "../context/actions/shopActions"
 import { useCart } from "../context/cartContext"
 import { useShop } from "../context/shopContext"
+import { getSortedData } from "./../common/helpers"
 
 export default function Home() {
-  // eslint-disable-next-line no-unused-vars
   const { state: shop, dispatch: shopDispatch } = useShop()
+  // eslint-disable-next-line no-unused-vars
   const { state: cart } = useCart()
   useEffect(() => {
     const fetch = async () => {
@@ -21,7 +22,9 @@ export default function Home() {
     }
     fetch()
   }, [shopDispatch])
-  console.log({ cart })
+  console.log({ shop })
+  const sortedData = getSortedData(shop.products.data, shop.products.sort)
+  console.log(sortedData)
   return (
     <>
       <Carousel />

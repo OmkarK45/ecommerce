@@ -10,7 +10,7 @@ import Wishlist from "./pages/Wishlist"
 export default function App() {
   return (
     <>
-      <Toaster position="bottom-center" reverseOrder={false} />
+      <Toaster position="bottom-right" reverseOrder={false} />
       <Router>
         <Header />
         <Switch>
@@ -20,7 +20,7 @@ export default function App() {
             <FancyRoute path="/cart" exact component={Cart} />
             <FancyRoute path="/wishlist" exact component={Wishlist} />
             <FancyRoute
-              path="/product/:id/:slug"
+              path="/products/:id/:slug"
               exact
               component={ProductDetail}
             />

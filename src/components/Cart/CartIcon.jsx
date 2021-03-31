@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 export default function CartIcon() {
   const { state: cart } = useCart()
   return (
-    <div className="border border-black relative">
+    <div className="relative">
       <Link to="/cart">
         <HiOutlineShoppingCart className="w-6 h-6 text-gray-600 " />
         {cart && (

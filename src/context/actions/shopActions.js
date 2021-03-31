@@ -1,5 +1,6 @@
 import { SHOP } from "../actionTypes"
 
+// Fetching actions
 export const fetchProducts = () => ({
   type: SHOP.FETCH_PRODUCTS,
 })
@@ -14,5 +15,13 @@ export const fetchProductsFail = (err) => ({
   type: SHOP.FETCH_PRODUCT_FAIL,
   payload: {
     err,
+  },
+})
+
+// Sorting actions
+export const handleSort = (sort) => ({
+  type: SHOP.SORT_PRODUCTS,
+  payload: {
+    sort,
   },
 })

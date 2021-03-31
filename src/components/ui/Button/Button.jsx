@@ -19,6 +19,11 @@ const VARIANTS = {
       "bg-red-500 hover:bg-red-600 focus:border-red-600 focus:shadow-outline-red",
     disabled: "bg-red-400",
   },
+  outline: {
+    base: "border border-transparent",
+    active:
+      "text-gray-700 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500",
+  },
 }
 
 const SIZES = {

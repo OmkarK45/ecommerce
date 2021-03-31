@@ -1,4 +1,4 @@
-import Dropdown from "../Dropdown/Dropdown"
+import Sort from "components/Dropdown/Sort"
 
 export default function SectionHeader({ title }) {
   return (
@@ -9,8 +9,7 @@ export default function SectionHeader({ title }) {
         </h2>
       </div>
       <div className="mt-4 flex space-x-2 md:mt-0 md:ml-4">
-        <Dropdown label="Sort By" />
-        <Dropdown label="Filter" />
+        <Sort />
       </div>
     </div>
   )

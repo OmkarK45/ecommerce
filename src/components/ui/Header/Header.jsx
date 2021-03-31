@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import clsx from "clsx"
 import CartIcon from "components/Cart/CartIcon"
 import Searchbar from "components/ui/Searchbar"
@@ -7,6 +8,7 @@ import { Link, NavLink } from "react-router-dom"
 import { categories } from "../../../common/defines"
 import Logo from "../Logo"
 import WishlistIcon from "../../Wishlist/WishlistIcon"
+import Sidebar from "components/Layout/Sidebar"
 
 export default function Header() {
   const [open, setOpen] = useState(false)
@@ -43,36 +45,9 @@ export default function Header() {
               </button>
             </div>
           </div>
-          <nav className="hidden lg:py-2 lg:flex lg:space-x-8">
-            {categories.map((category) => {
-              return (
-                <NavLink
-                  key={category}
-                  to={`/${category}`}
-                  activeClassName="bg-gray-100 text-gray-900"
-                  className="text-gray-900 hover:bg-gray-50 hover:text-gray-900 rounded-md py-2 px-3 inline-flex items-center text-sm font-medium"
-                >
-                  {category.toUpperCase()}
-                </NavLink>
-              )
-            })}
-          </nav>
         </div>
         <nav className={clsx(!open && "hidden lg:hidden", open && "block")}>
-          <div className="pt-2 pb-3 px-2 space-y-1">
-            {categories.map((category) => {
-              return (
-                <NavLink
-                  key={category}
-                  to={`/${category}`}
-                  activeClassName="bg-gray-100 text-gray-900"
-                  className="text-gray-900 hover:bg-gray-50 hover:text-gray-900  block rounded-md py-2 px-3 text-base font-medium"
-                >
-                  {category[0].toUpperCase() + category.slice(1)}
-                </NavLink>
-              )
-            })}
-          </div>
+          <Sidebar />
         </nav>
       </header>
     </>

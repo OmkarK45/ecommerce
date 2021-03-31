@@ -30,6 +30,14 @@ export function shopReducer(state, action) {
           loading: false,
         },
       }
+    case SHOP.SORT_PRODUCTS:
+      return {
+        ...state,
+        products: {
+          ...state.products,
+          sort: action.payload.sort,
+        },
+      }
     default:
       break
   }
