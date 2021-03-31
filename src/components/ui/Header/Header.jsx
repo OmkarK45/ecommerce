@@ -1,7 +1,8 @@
 import clsx from "clsx"
+import CartIcon from "components/Cart/CartIcon"
 import Searchbar from "components/ui/Searchbar"
 import { useState } from "react"
-import { HiMenu, HiOutlineShoppingCart, HiOutlineX } from "react-icons/hi"
+import { HiMenu, HiOutlineX } from "react-icons/hi"
 import { Link, NavLink } from "react-router-dom"
 import { categories } from "../../../common/defines"
 import Logo from "../Logo"
@@ -24,11 +25,7 @@ export default function Header() {
               </div>
             </div>
             <Searchbar />
-            <div className="hidden lg:relative lg:z-10 lg:ml-4 lg:flex lg:items-center">
-              <Link to="/cart">
-                <HiOutlineShoppingCart className="w-6 h-6 text-gray-600" />
-              </Link>
-            </div>
+            <CartIcon />
             <div className="relative z-10 flex items-center lg:hidden">
               <button
                 onClick={handleMenu}

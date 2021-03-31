@@ -16,7 +16,7 @@ const VARIANTS = {
   danger: {
     base: "border-transparent text-white",
     active:
-      "bg-red-600 hover:bg-red-500 focus:border-red-700 focus:shadow-outline-red",
+      "bg-red-500 hover:bg-red-400 focus:border-red-600 focus:shadow-outline-red",
     disabled: "bg-red-400",
   },
 }
