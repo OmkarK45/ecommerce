@@ -1,7 +1,7 @@
 import CartItem from "components/Cart/CartItem"
 import CartItemWrapper from "components/Cart/CartItemWrapper"
 import Checkout from "components/Cart/Checkout"
-import EmptyCart from "components/ui/Placeholder/EmptyCart"
+import Empty from "components/ui/Placeholder/Empty"
 import { toast } from "react-hot-toast"
 
 import {
@@ -9,6 +9,7 @@ import {
   handleIncreaseQuantity,
   handleRemoveFromCart,
 } from "../context/actions/cartActions"
+import { handleAddToWishList } from "../context/actions/wishListActions"
 import { useCart } from "../context/cartContext"
 
 export default function Cart() {
@@ -34,6 +35,11 @@ export default function Cart() {
       cartDispatch(handleDecreaseQuantity(product))
     }
   }
+
+  function addToWishlist(product) {
+    cartDispatch(handleAddToWishList(product))
+  }
+
   console.log(cart.cart)
   return (
     <div>
@@ -53,6 +59,7 @@ export default function Cart() {
                     removeFromCart={removeFromCart}
                     handleIncrement={handleIncrement}
                     handleDecrement={handleDecrement}
+                    addToWishlist={addToWishlist}
                     key={item.id}
                     product={item}
                   />
@@ -63,7 +70,7 @@ export default function Cart() {
           <Checkout />
         </div>
       ) : (
-        <EmptyCart />
+        <Empty label="Your Cart is empty" reference="cart" />
       )}
     </div>
   )

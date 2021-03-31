@@ -6,6 +6,7 @@ import { HiMenu, HiOutlineX } from "react-icons/hi"
 import { Link, NavLink } from "react-router-dom"
 import { categories } from "../../../common/defines"
 import Logo from "../Logo"
+import WishlistIcon from "../../Wishlist/WishlistIcon"
 
 export default function Header() {
   const [open, setOpen] = useState(false)
@@ -25,7 +26,10 @@ export default function Header() {
               </div>
             </div>
             <Searchbar />
-            <CartIcon />
+            <div className="hidden lg:relative lg:z-10 lg:ml-4 lg:flex lg:items-center lg:space-x-10">
+              <WishlistIcon />
+              <CartIcon />
+            </div>
             <div className="relative z-10 flex items-center lg:hidden">
               <button
                 onClick={handleMenu}

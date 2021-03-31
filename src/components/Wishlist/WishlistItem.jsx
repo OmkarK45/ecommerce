@@ -1,16 +1,13 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-no-bind */
 import { Button } from "components/ui"
-
-export default function CartItem({
+import { HiOutlineShoppingCart, HiOutlineTrash } from "react-icons/hi"
+export default function WishlistItem({
   product,
-  removeFromCart,
-  handleIncrement,
-  handleDecrement,
-  addToWishlist,
+  removeFromWishlist,
+  addToCart,
 }) {
-  const { title, price, description, image } = product
-
+  // eslint-disable-next-line no-unused-vars
+  const { image, title, price, description } = product
   return (
     <li>
       <div className="flex items-start space-x-6 px-2 md:px-3 py-4">
@@ -22,29 +19,22 @@ export default function CartItem({
             ratione!
           </p>
           <p className="text-lg font-bold">Rs. {price}</p>
-          <div>
-            <Button onClick={() => handleIncrement(product)} size="sm">
-              +
-            </Button>
-            <input
-              type="text"
-              value={product.quantity}
-              readOnly
-              className="w-10 text-center"
-            />
-            <Button onClick={() => handleDecrement(product)}>-</Button>
-          </div>
         </div>
       </div>
-      <div className="bg-gray-50 px-4 py-4 sm:px-6 space-x-2">
+      <div className="bg-gray-50 px-4 py-4 sm:px-6 flex items-center space-x-2 ">
         <Button
           variant="danger"
-          onClick={() => removeFromCart(product)}
+          onClick={() => removeFromWishlist(product)}
           size="sm"
         >
+          <HiOutlineTrash className="mr-2 h-4 w-4" />
           <span className="text-white">Remove</span>
         </Button>
-        <Button onClick={() => addToWishlist(product)}>Move to wishlist</Button>
+
+        <Button onClick={() => addToCart(product)} size="sm">
+          <HiOutlineShoppingCart className="mr-2 h-4 w-4" />
+          Add To Cart
+        </Button>
       </div>
     </li>
   )
