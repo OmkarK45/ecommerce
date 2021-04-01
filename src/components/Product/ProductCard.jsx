@@ -69,7 +69,7 @@ export default function ProductCard({ product }) {
             onLoad={handleImageLoad}
           />
 
-          <div className=" flex items-center absolute z-10 -bottom-2 right-4 bg-green-600 px-1 text-white text-sm rounded">
+          <div className="flex items-center absolute z-10 -bottom-2 right-4 bg-green-600 px-1 text-white text-sm rounded">
             <HiStar /> {product.ratings}
           </div>
         </div>
@@ -82,7 +82,6 @@ export default function ProductCard({ product }) {
           <p className="text-gray-500 text-sm">
             {product.productDescription.split(/,|\./)[0]}
           </p>
-
           <div className="flex items-center space-x-2">
             <p className="text-lg md:text-xl font-bold">
               ₹ {parseInt(product.price).toLocaleString("en-IN")}

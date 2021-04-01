@@ -24,7 +24,10 @@ export default function Home() {
   }, [shopDispatch])
   console.log("res.data", shop.products.data.products)
   console.log({ shop })
-  const sortedData = getSortedData(shop.products.data, shop.products.sort)
+  const sortedData = getSortedData(
+    shop.products.data.products,
+    shop.products.sort
+  )
   console.log(sortedData)
   return (
     <>

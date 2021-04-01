@@ -12,7 +12,7 @@ export default function ProductLayout({ loading, productList, errorStatus }) {
       <div className="hidden md:block">
         <VerticalNav heading="Departments" links={links} />
       </div>
-      <div className="flex flex-wrap lg:justify-between -mx-2 overflow-hidden sm:-mx-1 md:-mx-2 lg:-mx-2 xl:-mx-2 gap-4">
+      <div className="flex flex-wrap lg:justify-between md:justify-start -mx-2 overflow-hidden sm:-mx-1 md:-mx-2 lg:-mx-2 xl:-mx-2 gap-4">
         {loading ? (
           <>
             <ProductCardSkeleton />
