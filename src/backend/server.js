@@ -19,6 +19,10 @@ export default function server() {
       this.get("/products", (schema) => {
         return schema.products.all()
       })
+
+      this.get("/products/:id", (schema, request) => {
+        return schema.products.find(request.params.id)
+      })
     },
   })
 }

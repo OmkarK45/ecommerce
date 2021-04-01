@@ -11,7 +11,7 @@ export default function ProductDetail() {
   useEffect(() => {
     const fetch = async () => {
       await axios
-        .get("https://fakestoreapi.com/products/" + id)
+        .get("/api/products/" + id)
         .then((res) => setProduct(res.data))
         .catch((err) => console.log(err))
     }
