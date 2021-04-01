@@ -30,7 +30,7 @@ export default function ProductDetail() {
     setImageURL("loaded")
   }
 
-  console.log({ product })
+  console.log(product?.offers)
   return (
     <>
       {product ? (
@@ -73,10 +73,14 @@ export default function ProductDetail() {
                 <Divider label="Offers" />
                 <div className="flex flex-col space-y-2 mt-3">
                   <ul>
-                    <li className="flex items-center space-x-3">
-                      <MdLocalOffer />
-                      <p>{product.offer}</p>
-                    </li>
+                    {product?.offers.map((offer, i) => {
+                      return (
+                        <li key={i} className="flex items-center space-x-3">
+                          <MdLocalOffer className="text-blue-600" />
+                          <p>{offer}</p>
+                        </li>
+                      )
+                    })}
                   </ul>
                 </div>
               </div>

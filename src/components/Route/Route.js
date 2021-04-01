@@ -1,5 +1,5 @@
 import "nprogress/nprogress.css"
-
+import "./routeStyles.css"
 import nprogress from "nprogress"
 import { useEffect, useState } from "react"
 import { Route } from "react-router-dom"

@@ -87,12 +87,7 @@ export default function ProductCard({ product }) {
               ₹ {parseInt(product.price).toLocaleString("en-IN")}
             </p>
 
-            <p className="text-gray-500 line-through text-sm">
-              ₹{" "}
-              {(
-                parseInt(product.price) + Math.floor(Math.random() * 900)
-              ).toLocaleString("en-IN")}
-            </p>
+            <p className="text-gray-500 line-through text-sm">₹ 19,999</p>
 
             <p className="text-green-700 text-xs">45Rs Off</p>
           </div>
