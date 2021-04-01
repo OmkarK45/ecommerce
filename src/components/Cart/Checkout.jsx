@@ -10,7 +10,7 @@ export default function Checkout() {
         Math.round(((prev + current.price * current.quantity) * 100) / 100),
       0
     )
-    return price
+    return price.toLocaleString("en-IN")
   }
   return (
     <div className="lg:sticky top-16 w-full md:w-1/2 lg:w-1/3 bg-white border border-gray-300 overflow-hidden rounded-md">
@@ -27,7 +27,7 @@ export default function Checkout() {
                 </p>
               </div>
               <div>
-                <p className="font-bold">{getPrice()}</p>
+                <p className="font-bold">₹ {getPrice()}</p>
               </div>
             </div>
             {cart && cart.cart.length > 0
@@ -42,7 +42,10 @@ export default function Checkout() {
                       </div>
                       <div>
                         <p className="font-bold">
-                          ₹ {Math.round(item.price * item.quantity)}
+                          ₹{" "}
+                          {Math.round(
+                            item.price * item.quantity
+                          ).toLocaleString("en-IN")}
                         </p>
                       </div>
                     </div>
