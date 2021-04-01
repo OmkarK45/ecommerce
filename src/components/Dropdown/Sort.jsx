@@ -19,9 +19,19 @@ export default function Sort() {
     }
   }
   return (
-    <div className="flex space-x-1">
-      <p>Sort By</p>
-      <select onChange={sortSelectChange} name="sort" id="">
+    <div className="flex items-center space-x-1">
+      <label
+        htmlFor="sort"
+        className="block mr-2 whitespace-nowrap text-sm font-medium text-gray-700"
+      >
+        Sort By
+      </label>
+      <select
+        onChange={sortSelectChange}
+        name="sort"
+        id="sort"
+        className="block shadow-sm w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md"
+      >
         <option value="az">A to Z</option>
         <option value="za">Z to A</option>
         <option value="lowHigh">Price - Low to High</option>

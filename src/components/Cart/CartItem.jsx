@@ -14,7 +14,7 @@ export default function CartItem({
   return (
     <li>
       <div className="flex items-start space-x-6 px-2 md:px-3 py-4">
-        <img src={image} className="w-20 h-20 rounded" alt="" />
+        <img src={image} className="w-20 h-20 rounded object-contain" alt="" />
         <div className="flex flex-col space-y-2">
           <h2 className="text-base font-semibold">{title}</h2>
           <p className="text-gray-500 text-sm ">

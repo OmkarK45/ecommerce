@@ -1,8 +1,12 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-no-bind */
 import Button from "components/ui/Button/Button"
 import toast from "react-hot-toast"
-import { HiHeart, HiOutlineHeart, HiOutlineShoppingCart } from "react-icons/hi"
+import {
+  HiHeart,
+  HiOutlineHeart,
+  HiOutlineShoppingCart,
+  HiStar,
+} from "react-icons/hi"
 import { Link } from "react-router-dom"
 
 import { getSlug } from "../../common/helpers"
@@ -12,10 +16,15 @@ import {
   handleAddToWishList,
   handleRemoveFromWishList,
 } from "./../../context/actions/wishListActions"
+import { useState } from "react"
+import Skeleton from "components/ui/Placeholder/Skeleton"
+import clsx from "clsx"
 
 export default function ProductCard({ product }) {
   const { state: cart, dispatch: cartDispatch } = useCart()
   const notify = (message) => toast.success(message)
+
+  const [image, setImageURL] = useState("")
 
   function addToCart(product) {
     cartDispatch(handleAddToCart(product))
@@ -33,10 +42,14 @@ export default function ProductCard({ product }) {
     }
   }
 
+  const handleImageLoad = () => {
+    setImageURL("loaded")
+  }
+
   return (
     <div className="flex flex-col justify-between shadow rounded overflow-hidden w-full sm:w-48 md:w-60 bg-white relative pb-4 justify-self-start">
       <button
-        className="absolute right-4 rounded-full top-3 bg-red-100 p-1  text-red-500 text-lg transform  focus:outline-none hover:scale-150 transition"
+        className="absolute right-4 rounded-full top-3 bg-red-100 p-1  text-red-500 text-lg transform  focus:outline-none hover:scale-150 transition z-10"
         onClick={() => addToWishlist(product)}
       >
         {wishListed.length === 0 ? <HiOutlineHeart /> : <HiHeart />}
@@ -44,25 +57,40 @@ export default function ProductCard({ product }) {
 
       <Link to={`/products/${product.id}/${getSlug(product.title)}`}>
         <div className=" relative">
+          {!image && product.image && <Skeleton height="32" />}
+
           <img
             src={product.image}
-            className="h-36 mb-5 w-full object-contain block"
+            className={clsx(
+              "h-0 mb-5 w-full object-cover block",
+              image && " h-36"
+            )}
             alt="Product name goes here"
+            onLoad={handleImageLoad}
           />
-          <span className="absolute bottom-0 right-4 bg-green-600 px-2.5 text-white text-sm rounded">
-            4.4
-          </span>
+
+          <div className=" flex items-center absolute z-10 -bottom-2 right-4 bg-green-600 px-1 text-white text-sm rounded">
+            <HiStar /> 4.4
+          </div>
         </div>
         <div className="space-y-2 mt-2 px-4 flex-grow">
           <p className="text-base md:text-base font-semibold truncate">
             {product.title}
           </p>
           <p className="text-gray-500 text-sm">
-            Engineered to perfection and crafted with care
+            {product.productDescription.split(/,|\./)[0]}
           </p>
           <div className="flex items-center space-x-2">
-            <p className="text-lg md:text-xl font-bold">₹ 13,999</p>
-            <p className="text-gray-500 line-through text-sm">₹ 19,999</p>
+            <p className="text-lg md:text-xl font-bold">
+              ₹ {parseInt(product.price).toLocaleString("en-IN")}
+            </p>
+            <p className="text-gray-500 line-through text-sm">
+              ₹{" "}
+              {(
+                parseInt(product.price) + Math.floor(Math.random() * 900)
+              ).toLocaleString("en-IN")}
+            </p>
+            <p className="text-green-700 text-xs">45Rs Off</p>
           </div>
         </div>
       </Link>

@@ -17,11 +17,12 @@ export default function Home() {
   useEffect(() => {
     const fetch = async () => {
       await axios
-        .get("https://fakestoreapi.com/products")
+        .get("/api/products")
         .then((res) => shopDispatch(fetchProductsSuccess(res.data)))
     }
     fetch()
   }, [shopDispatch])
+  console.log("res.data", shop.products.data.products)
   console.log({ shop })
   const sortedData = getSortedData(shop.products.data, shop.products.sort)
   console.log(sortedData)
@@ -32,7 +33,7 @@ export default function Home() {
         <SectionHeader title="Latest Arrivals" />
         <ProductLayout
           loading={shop?.products?.loading}
-          productList={shop?.products?.data}
+          productList={shop?.products.data?.products}
           errorStatus={shop?.products?.error}
         />
       </Layout>

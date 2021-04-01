@@ -6,6 +6,7 @@ import { Home, NotFound, Product, Cart } from "./pages"
 import ProductDetail from "./components/Product/ProductDetail"
 import FancyRoute from "./components/Route/Route"
 import Wishlist from "./pages/Wishlist"
+import Test from "./pages/Test"
 
 export default function App() {
   return (
@@ -24,6 +25,8 @@ export default function App() {
               exact
               component={ProductDetail}
             />
+            {/* Test route */}
+            <FancyRoute path="/test" exact component={Test} />
           </Layout>
           <FancyRoute path="*" component={NotFound} />
         </Switch>

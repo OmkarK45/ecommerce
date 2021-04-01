@@ -1,8 +1,11 @@
 import axios from "axios"
-
+// @TODO-> fix this
+import { API_URL } from "../common/defines"
 class AxiosService {
   constructor() {
-    const instance = axios.create()
+    const instance = axios.create({
+      baseURL: API_URL,
+    })
     instance.interceptors.response.use(this.handleSuccess, this.handleError)
   }
   handleSuccess(response) {

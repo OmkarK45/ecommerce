@@ -13,7 +13,7 @@ export default function Checkout() {
     return price
   }
   return (
-    <div className="lg:sticky w-full md:w-1/2 lg:w-1/3 bg-white border border-gray-300 overflow-hidden rounded-md">
+    <div className="lg:sticky top-16 w-full md:w-1/2 lg:w-1/3 bg-white border border-gray-300 overflow-hidden rounded-md">
       <ul className="divide-y divide-gray-300" data-todo-x-max="1">
         <div className="px-6 py-4">
           <h1 className="text-base font-semibold uppercase">
