@@ -1,1 +1,1 @@
-export { default as Sort } from "./Sort"
+export { Sort } from "./Sort"

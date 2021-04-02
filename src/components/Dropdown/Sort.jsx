@@ -1,7 +1,7 @@
 import { handleSort } from "../../context/actions/shopActions"
 import { useShop } from "../../context/shopContext"
 
-export default function Sort() {
+export function Sort() {
   const { dispatch: shopDispatch } = useShop()
   function sortSelectChange(e) {
     switch (e.target.value) {

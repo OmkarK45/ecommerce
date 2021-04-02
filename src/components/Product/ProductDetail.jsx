@@ -33,7 +33,7 @@ export default function ProductDetail() {
   console.log(product?.offers)
   return (
     <>
-      {product ? (
+      {product.offers ? (
         <div className="container rounded shadow bg-white mx-auto px-4 py-4 sm:px-6 lg:px-8 mb-10 ">
           <div className="flex flex-col space-y-3 md:flex-row">
             <div className="flex-1">

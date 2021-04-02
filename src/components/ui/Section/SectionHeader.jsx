@@ -1,4 +1,4 @@
-import Sort from "components/Dropdown/Sort"
+import { Sort } from "components/Dropdown/Sort"
 
 export default function SectionHeader({ title }) {
   return (

@@ -17,6 +17,8 @@ Project #2 for neog
   /shop/products -> List of all products
   /shop/products/:id -> A particular product
 
+Today-> Move sort and filter to bottom
+
 --> Other Routes
 /user/cart -> Cart
 /user/wishlist -> Wishlist

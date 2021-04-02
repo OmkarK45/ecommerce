@@ -12,6 +12,7 @@ export default function Sidebar() {
           <div className="flex-grow flex flex-col">
             <div className="mx-auto">
               <VerticalNav links={sidebarLinks} />
+              {/* TBD Sort and Filter */}
             </div>
           </div>
         </div>

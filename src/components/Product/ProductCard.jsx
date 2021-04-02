@@ -47,7 +47,7 @@ export default function ProductCard({ product }) {
   }
 
   return (
-    <div className="flex flex-col justify-between shadow rounded overflow-hidden w-full sm:w-48 md:w-60 bg-white relative pb-4 justify-self-start">
+    <div className="flex flex-col justify-between  md:shadow border border-gray-200 md:border-none md:rounded overflow-hidden w-full sm:w-48 md:w-60 bg-white relative pb-4 justify-self-start">
       <button
         className="absolute right-4 rounded-full top-3 bg-red-100 p-1  text-red-500 text-lg transform  focus:outline-none hover:scale-150 transition z-10"
         onClick={() => addToWishlist(product)}
@@ -74,26 +74,23 @@ export default function ProductCard({ product }) {
           </div>
         </div>
 
-        <div className="space-y-2 mt-2 px-4 flex-grow">
+        <div className="space-y-2 mt-2 px-2 md:px-4 flex-grow ">
           <p className="text-base md:text-base font-semibold truncate">
             {product.title}
           </p>
-
-          <p className="text-gray-500 text-sm">
-            {product.productDescription.split(/,|\./)[0]}
+          <p className="text-gray-500 text-xs md:text-sm">
+            {/* {product.productDescription.split(/,|\./)[0]} */}
+            Lorem ipsum dolor sit amet.
           </p>
-          <div className="flex items-center space-x-2">
-            <p className="text-lg md:text-xl font-bold">
+          <div className="flex items-center space-x-1">
+            <p className="text-md md:text-xl font-bold">
               ₹ {parseInt(product.price).toLocaleString("en-IN")}
             </p>
-
-            <p className="text-gray-500 line-through text-sm">₹ 19,999</p>
-
-            <p className="text-green-700 text-xs">45Rs Off</p>
+            <p className="text-gray-500 line-through text-xs">₹ 19,999</p>
           </div>
         </div>
       </Link>
-      <div className="flex flex-col  space-y-2 space-y-2 mt-2 px-4">
+      <div className="flex flex-col  space-y-2 space-y-2 mt-2 px-2 md:px-4">
         <Button
           variant="primary"
           className="opacity-90"

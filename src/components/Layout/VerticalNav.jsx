@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 export default function VerticalNav({ heading, links }) {
   return (
     <div className="md:sticky top-20 pr-3">
-      <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+      <h3 className="text-md font-semibold text-gray-500 uppercase tracking-wider">
         {heading}
       </h3>
       <div className="mt-1 space-y-1">
@@ -19,9 +19,6 @@ export default function VerticalNav({ heading, links }) {
               </Link>
             )
           })}
-      </div>
-      <div className=" mt-4 flex justify-center items-center">
-        <p className="text-gray-500 text-xs">&copy; 2021, Doge Mart.</p>
       </div>
     </div>
   )
