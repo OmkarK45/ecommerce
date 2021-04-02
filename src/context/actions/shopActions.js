@@ -25,3 +25,10 @@ export const handleSort = (sort) => ({
     sort,
   },
 })
+
+export const handleSearch = (query) => ({
+  type: SHOP.SEARCH_PRODUCTS,
+  payload: {
+    query,
+  },
+})

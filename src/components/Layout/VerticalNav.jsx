@@ -1,11 +1,8 @@
 import { Link } from "react-router-dom"
 
-export default function VerticalNav({ heading, links }) {
+export default function VerticalNav({ links }) {
   return (
     <div className="md:sticky top-20 pr-3">
-      <h3 className="text-md font-semibold text-gray-500 uppercase tracking-wider">
-        {heading}
-      </h3>
       <div className="mt-1 space-y-1">
         {links &&
           links.map((link) => {

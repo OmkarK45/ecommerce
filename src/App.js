@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 //@TODO-> Clean imports to use path alias
 import { Header, Layout } from "components"
 import { Toaster } from "react-hot-toast"
@@ -7,8 +8,23 @@ import ProductDetail from "./components/Product/ProductDetail"
 import FancyRoute from "./components/Route/Route"
 import Wishlist from "./pages/Wishlist"
 import Test from "./pages/Test"
+import { useShop } from "./context/shopContext"
+import axios from "axios"
+import { useEffect } from "react"
+import { fetchProductsSuccess } from "./context/actions/shopActions"
 
 export default function App() {
+  const { state: shop, dispatch: shopDispatch } = useShop()
+
+  useEffect(() => {
+    const fetch = async () => {
+      await axios
+        .get("/api/products")
+        .then((res) => shopDispatch(fetchProductsSuccess(res.data)))
+    }
+    fetch()
+  }, [shopDispatch])
+
   return (
     <>
       <Toaster position="bottom-right" reverseOrder={false} />

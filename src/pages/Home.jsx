@@ -1,11 +1,10 @@
-import axios from "axios"
+/* eslint-disable no-unused-vars */
 import { Carousel } from "components"
 import Layout from "components/Layout/Layout"
 import ProductLayout from "components/Product/ProductLayout"
 import SectionHeader from "components/ui/Section/SectionHeader"
 import { useEffect } from "react"
 
-import { fetchProductsSuccess } from "../context/actions/shopActions"
 import { useCart } from "../context/cartContext"
 import { useShop } from "../context/shopContext"
 import { getSortedData } from "./../common/helpers"
@@ -14,30 +13,25 @@ export default function Home() {
   const { state: shop, dispatch: shopDispatch } = useShop()
   // eslint-disable-next-line no-unused-vars
   const { state: cart } = useCart()
-  useEffect(() => {
-    const fetch = async () => {
-      await axios
-        .get("/api/products")
-        .then((res) => shopDispatch(fetchProductsSuccess(res.data)))
-    }
-    fetch()
-  }, [shopDispatch])
-  console.log("res.data", shop.products.data.products)
-  console.log({ shop })
-  const sortedData = getSortedData(
-    shop.products.data.products,
-    shop.products.sort
-  )
-  console.log(sortedData)
+
+  const sortedData = getSortedData(shop.data, shop.sort)
+  console.log("shop", shop.data)
+  // console.log(sortedData)
+  function getSearchedItems(query) {
+    return shop.data.filter((product) =>
+      product.title.toLowerCase().includes(query) ? product : null
+    )
+  }
+  console.log(getSearchedItems(shop.searchQuery))
   return (
     <>
       <Carousel />
       <Layout>
-        <SectionHeader title="Latest Arrivals" />
+        <SectionHeader title="Lates" />
         <ProductLayout
-          loading={shop?.products?.loading}
-          productList={shop?.products.data?.products}
-          errorStatus={shop?.products?.error}
+          loading={shop?.loading}
+          productList={shop?.data}
+          errorStatus={shop?.error}
         />
       </Layout>
     </>

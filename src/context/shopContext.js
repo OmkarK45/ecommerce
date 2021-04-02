@@ -1,15 +1,8 @@
-import { shopReducer } from "./reducers/shopReducer"
+import { shopReducer, initialState } from "./reducers/shopReducer"
 
 import { createContext, useReducer, useContext } from "react"
 const ShopContext = createContext()
-const initialState = {
-  products: {
-    loading: true,
-    data: [],
-    error: false,
-    sort: null,
-  },
-}
+
 export const ShopProvider = ({ children }) => {
   const [state, dispatch] = useReducer(shopReducer, initialState)
   return (

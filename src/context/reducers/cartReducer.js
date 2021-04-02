@@ -1,5 +1,10 @@
 import { CART, WISHLIST } from "../actionTypes"
 
+export const intialState = {
+  cart: [],
+  wishList: [],
+}
+
 export function cartReducer(state, action) {
   switch (action.type) {
     case CART.ADD_TO_CART: {

@@ -1,22 +1,10 @@
-import { handleSort } from "../../context/actions/shopActions"
+import { getSortDispatch } from "../../common/helpers"
 import { useShop } from "../../context/shopContext"
 
 export function Sort() {
   const { dispatch: shopDispatch } = useShop()
   function sortSelectChange(e) {
-    switch (e.target.value) {
-      case "az":
-        return shopDispatch(handleSort("az"))
-      case "za":
-        return shopDispatch(handleSort("za"))
-      case "lowHigh":
-        return shopDispatch(handleSort("lowHigh"))
-      case "highLow":
-        return shopDispatch(handleSort("highLow"))
-      default:
-        //   This could be better
-        return {}
-    }
+    shopDispatch(getSortDispatch(e.target.value))
   }
   return (
     <div className="flex items-center space-x-1">

@@ -1,44 +1,48 @@
 /* eslint-disable consistent-return */
 import { SHOP } from "../actionTypes"
 
+export const initialState = {
+  loading: true,
+  data: [],
+  error: false,
+  sort: null,
+  searchQuery: null,
+}
 export function shopReducer(state, action) {
   switch (action.type) {
     case SHOP.FETCH_PRODUCTS:
       return {
         ...state,
-        products: {
-          ...state.products,
-          loading: false,
-          data: action.payload.data,
-        },
+        loading: false,
+        data: [...state.data, ...action.payload.data.products],
       }
     case SHOP.FETCH_PRODUCTS_SUCCESS:
       return {
         ...state,
-        products: {
-          ...state.products,
-          loading: false,
-          data: action.payload.data,
-        },
+        loading: false,
+        data: [...state.data, ...action.payload.data.products],
       }
+
     case SHOP.FETCH_PRODUCT_FAIL:
       return {
         ...state,
-        products: {
-          data: [],
-          error: true,
-          loading: false,
-        },
+        error: true,
+        loading: false,
+        data: [],
       }
     case SHOP.SORT_PRODUCTS:
       return {
         ...state,
-        products: {
-          ...state.products,
-          sort: action.payload.sort,
-        },
+        sort: action.payload.sort,
+        data: [...state.data],
+      }
+    case SHOP.SEARCH_PRODUCTS:
+      return {
+        ...state,
+        searchQuery: action.payload.query,
+        data: [...state.data],
       }
     default:
-      break
+      return { ...state }
   }
 }
