@@ -11,12 +11,10 @@ import { getSortedData } from "./../common/helpers"
 
 export default function Home() {
   const { state: shop, dispatch: shopDispatch } = useShop()
-  // eslint-disable-next-line no-unused-vars
   const { state: cart } = useCart()
 
   const sortedData = getSortedData(shop.data, shop.sort)
   console.log("shop", shop.data)
-  // console.log(sortedData)
   function getSearchedItems(query) {
     return shop.data.filter((product) =>
       product.title.toLowerCase().includes(query) ? product : null
@@ -27,7 +25,7 @@ export default function Home() {
     <>
       <Carousel />
       <Layout>
-        <SectionHeader title="Lates" />
+        <SectionHeader title="Store" />
         <ProductLayout
           loading={shop?.loading}
           productList={shop?.data}

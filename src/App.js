@@ -11,7 +11,9 @@ import Test from "./pages/Test"
 import { useShop } from "./context/shopContext"
 import axios from "axios"
 import { useEffect } from "react"
-import { fetchProductsSuccess } from "./context/actions/shopActions"
+import { fetchProductsSuccess } from "context/actions/shopActions"
+import { useCart } from "context/cartContext"
+import ProductDetailPage from "./pages/ProductDetailPage"
 
 export default function App() {
   const { state: shop, dispatch: shopDispatch } = useShop()
@@ -39,7 +41,7 @@ export default function App() {
             <FancyRoute
               path="/products/:id/:slug"
               exact
-              component={ProductDetail}
+              component={ProductDetailPage}
             />
             {/* Test route */}
             <FancyRoute path="/test" exact component={Test} />

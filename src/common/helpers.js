@@ -8,6 +8,8 @@ export function getSortedData(data, sortMethod) {
       return data.sort((a, b) => a.price - b.price)
     case "highLow":
       return data.sort((a, b) => b.price - a.price)
+    case "clear":
+      return data
     default:
       return data
   }
@@ -23,6 +25,9 @@ export function getSortDispatch(e) {
       return handleSort("lowHigh")
     case "highLow":
       return handleSort("highLow")
+    case "clear":
+      console.log("clear called")
+      return handleSort(null)
     default:
       //   This could be better
       return {}

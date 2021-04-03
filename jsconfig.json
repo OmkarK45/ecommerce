@@ -1,8 +1,12 @@
 {
     "compilerOptions": {
-        "baseUrl": "src",
+        "baseUrl": "./",
+        "target": "es2015",
+        "allowSyntheticDefaultImports": false,
         "paths": {
-           "components/*" : ["./components/*"]
+           "components/*" : ["src/components/*"],
+           "context/*" :["src/context/*"],
+           "pages/*" : ["src/pages/*"] 
         }
-    }
+    },
 }

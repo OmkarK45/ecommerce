@@ -10,10 +10,8 @@ export default function ProductLayout({ loading, productList, errorStatus }) {
   }
 
   return (
-    <div className="flex border border-blue-500 justify-between">
-      <div className="hidden border border-red-800 w-1/5 md:block space-y-3">
-        <VerticalNav links={links} />
-      </div>
+    <div className="flex gap-x-2">
+      <VerticalNav links={links} />
       <Grid>
         {loading ? (
           <>

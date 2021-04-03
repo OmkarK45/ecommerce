@@ -12,6 +12,8 @@ module.exports = {
     alias: {
       components: path.resolve(__dirname, "../src/components"),
       utils: path.resolve(__dirname, "../src/utils"),
+      context: path.resolve(__dirname, "../src/context"),
+      pages: path.resolve(__dirname, "../src/pages"),
     },
     extensions: [".js", ".jsx"],
   },

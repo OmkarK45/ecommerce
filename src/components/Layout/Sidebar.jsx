@@ -8,7 +8,7 @@ export default function Sidebar() {
       style={{ minHeight: "640px" }}
     >
       <div className="flex flex-col w-64">
-        <div className="flex flex-col flex-grow border-r border-gray-200  bg-white overflow-y-auto">
+        <div className="flex flex-col flex-grow bg-white overflow-y-auto">
           <div className="flex-grow flex flex-col">
             <div className="mx-auto">
               <VerticalNav links={sidebarLinks} />

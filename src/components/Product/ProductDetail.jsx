@@ -5,7 +5,7 @@ import {
   HiStar,
 } from "react-icons/hi"
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import axios from "axios"
 import { MdLocalOffer } from "react-icons/md"
 import Divider from "components/ui/Divider"
@@ -33,8 +33,11 @@ export default function ProductDetail() {
   console.log(product?.offers)
   return (
     <>
+      <Link to="/" className="block my-3">
+        <Button>Back to store</Button>
+      </Link>
       {product.offers ? (
-        <div className="container rounded shadow bg-white mx-auto px-4 py-4 sm:px-6 lg:px-8 mb-10 ">
+        <div className="container rounded shadow bg-white mx-auto px-4 py-4 sm:px-6 lg:px-8 mb-10">
           <div className="flex flex-col space-y-3 md:flex-row">
             <div className="flex-1">
               {!image && product.image && <Skeleton height="full" />}
