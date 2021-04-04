@@ -71,7 +71,7 @@ export default function ProductCard({ product }) {
         <div className=" relative">
           {!image && product.image && <Skeleton height="32" />}
           <img
-            src={product.image}
+            src={product.image.slice(0, 4).concat("s") + product.image.slice(4)}
             className={clsx(
               "h-0 mb-5 w-full object-cover block",
               image && " h-36"

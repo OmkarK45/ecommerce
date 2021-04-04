@@ -1,19 +1,23 @@
 /* eslint-disable no-unused-vars */
 //@TODO-> Clean imports to use path alias
-import { Header, Layout } from "components"
+import { useEffect } from "react"
 import { Toaster } from "react-hot-toast"
 import { BrowserRouter as Router, Switch } from "react-router-dom"
-import { Home, NotFound, Product, Cart } from "./pages"
-import ProductDetail from "./components/Product/ProductDetail"
+import { Header, Layout } from "components"
+import {
+  Home,
+  NotFound,
+  Product,
+  Cart,
+  Wishlist,
+  Test,
+  ProductDetailPage,
+  Marketing,
+} from "./pages"
 import FancyRoute from "./components/Route/Route"
-import Wishlist from "./pages/Wishlist"
-import Test from "./pages/Test"
 import { useShop } from "./context/shopContext"
 import axios from "axios"
-import { useEffect } from "react"
 import { fetchProductsSuccess } from "context/actions/shopActions"
-import { useCart } from "context/cartContext"
-import ProductDetailPage from "./pages/ProductDetailPage"
 
 export default function App() {
   const { state: shop, dispatch: shopDispatch } = useShop()
@@ -43,7 +47,8 @@ export default function App() {
       <Router>
         <Header />
         <Switch>
-          <FancyRoute path="/" exact component={Home} />
+          <FancyRoute path="/" exact component={Marketing} />
+          <FancyRoute path="/store" exact component={Home} />
           <Layout>
             <FancyRoute path="/product" exact component={Product} />
             <FancyRoute path="/cart" exact component={Cart} />

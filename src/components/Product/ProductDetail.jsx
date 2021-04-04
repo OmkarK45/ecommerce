@@ -52,7 +52,7 @@ export default function ProductDetail() {
   console.log(product?.offers)
   return (
     <>
-      <Link to="/" className="block my-3">
+      <Link to="/store" className="block my-3">
         <Button>Back to store</Button>
       </Link>
       {product.offers ? (

@@ -1,7 +1,7 @@
 export default function ProductCardSkeleton() {
   return (
     <>
-      <div className="flex flex-col justify-between shadow rounded overflow-hidden w-full sm:w-48 md:w-56 bg-white mt-4 pb-4 justify-self-start animate-pulse">
+      <div className="flex flex-col justify-between  md:shadow border border-gray-200 md:border-none md:rounded overflow-hidden w-full sm:w-48 md:w-60 bg-white relative pb-4 justify-self-start animate-pulse">
         <div className="h-36 w-full object-cover block bg-gray-300"></div>
         <div className="space-y-2 mt-2 px-4">
           <div className="h-4 bg-gray-300 rounded w-5/6"></div>
