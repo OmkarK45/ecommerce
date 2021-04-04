@@ -10,9 +10,9 @@ export function Sort() {
     shopDispatch(getSortDispatch("clear"))
   }
   return (
-    <div className="flex flex-col justify-center space-y-3">
+    <div className="flex flex-col justify-center space-y-3 pb-3">
       {shop.sort ? <button onClick={handleClear}>Clear Sorts</button> : null}
-
+      {/* @TODO -> use map here */}
       <div className="space-x-1">
         <input
           checked={shop.sort === "lowHigh"}

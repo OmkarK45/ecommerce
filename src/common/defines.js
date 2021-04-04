@@ -24,3 +24,18 @@ export const sidebarLinks = [
     label: "Women Clothing",
   },
 ]
+
+export const brands = [
+  "Apple",
+  "Microsoft",
+  "Asus",
+  "Acer",
+  "Samsung",
+  "Dell",
+  "Motorola",
+  "HP",
+  "Redmi",
+  "Nike",
+  "Puma",
+  "Reebok",
+]

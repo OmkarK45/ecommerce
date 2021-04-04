@@ -14,6 +14,7 @@ module.exports = {
       utils: path.resolve(__dirname, "../src/utils"),
       context: path.resolve(__dirname, "../src/context"),
       pages: path.resolve(__dirname, "../src/pages"),
+      common: path.resolve(__dirname, "../src/common"),
     },
     extensions: [".js", ".jsx"],
   },

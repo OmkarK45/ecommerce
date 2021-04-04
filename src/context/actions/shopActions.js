@@ -32,3 +32,10 @@ export const handleSearch = (query) => ({
     query,
   },
 })
+
+export const handleBrandFilter = (brands) => ({
+  type: SHOP.FILTER_BY_BRAND,
+  payload: {
+    brands,
+  },
+})

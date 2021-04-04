@@ -3,6 +3,7 @@ import {
   HiOutlineShoppingBag,
   HiOutlineShoppingCart,
   HiStar,
+  HiCheckCircle,
 } from "react-icons/hi"
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
@@ -37,15 +38,19 @@ export default function ProductDetail() {
         <Button>Back to store</Button>
       </Link>
       {product.offers ? (
-        <div className="container rounded shadow bg-white mx-auto px-4 py-4 sm:px-6 lg:px-8 mb-10">
+        <div className="container rounded shadow bg-white mx-auto px-4 py-4 sm:px-6 lg:px-8 lg:py-10 mb-10">
           <div className="flex flex-col space-y-3 md:flex-row">
-            <div className="flex-1">
-              {!image && product.image && <Skeleton height="full" />}
+            <div className="flex items-center flex-1">
+              {!image && product.image && (
+                <Skeleton height="full" width="3/4" />
+              )}
               <img
-                // src={product.image}
-                src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+                src={product.image}
                 alt="Product Image"
-                className={clsx("w-1/2 mx-auto  h-0", image && " h-full")}
+                className={clsx(
+                  "w-full md:w-3/4 mx-auto  h-0",
+                  image && " h-auto object-cover"
+                )}
                 onLoad={handleImageLoad}
               />
             </div>
@@ -72,19 +77,33 @@ export default function ProductDetail() {
                   </p>
                 </span>
               </div>
-              <div>
-                <Divider label="Offers" />
+              <div className="space-y-4">
                 <div className="flex flex-col space-y-2 mt-3">
+                  <Divider label="Offers" />
                   <ul>
                     {product?.offers.map((offer, i) => {
                       return (
-                        <li key={i} className="flex items-center space-x-3">
-                          <MdLocalOffer className="text-blue-600" />
-                          <p>{offer}</p>
+                        <li key={i}>
+                          <div className="flex items-center space-x-3">
+                            <MdLocalOffer className="text-blue-700 w-5 h-5" />
+
+                            <p>{offer}</p>
+                          </div>
                         </li>
                       )
                     })}
                   </ul>
+                  {product.expressDelivery ? (
+                    <>
+                      <Divider label="Perks" />
+                      <ul>
+                        <li className="flex items-center space-x-3">
+                          <HiCheckCircle className="text-green-700 w-5 h-5" />
+                          <p>Express Delivery available.</p>
+                        </li>
+                      </ul>
+                    </>
+                  ) : null}
                 </div>
               </div>
               <div className="flex flex-col md:space-x-2 md:flex-row justify-center space-y-2 md:space-y-0">

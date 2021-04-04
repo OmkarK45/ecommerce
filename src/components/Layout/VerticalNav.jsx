@@ -1,3 +1,4 @@
+import Filter from "components/Dropdown/Filter"
 import { Sort } from "components/Dropdown/Sort"
 import { Link } from "react-router-dom"
 
@@ -26,6 +27,11 @@ export default function VerticalNav({ links }) {
             Sort By
           </p>
           <Sort />
+          <hr />
+          <p className="uppercase py-2 text-gray-700 tracking-wider text-sm">
+            Filter By Brand
+          </p>
+          <Filter />
         </div>
       </div>
     </div>

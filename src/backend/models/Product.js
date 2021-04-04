@@ -31,7 +31,7 @@ export const Product = {
   offers: () =>
     faker.random.arrayElements(
       [
-        "",
+        "Pay with BHIM UPI and avail Rs. 400 Cashback*",
         "Save 70%",
         "Save upto 40% with SBI Credit Card*",
         "Save 50% on Bajaj Finance App",
