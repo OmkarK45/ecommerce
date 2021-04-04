@@ -13,7 +13,7 @@ export function Sort() {
     <div className="flex flex-col justify-center space-y-3 pb-3">
       {shop.sort ? <button onClick={handleClear}>Clear Sorts</button> : null}
       {/* @TODO -> use map here */}
-      <div className="space-x-1">
+      <div className="space-x-2">
         <input
           checked={shop.sort === "lowHigh"}
           onChange={checkboxChange}
@@ -28,7 +28,7 @@ export function Sort() {
           Price - Low to High
         </label>
       </div>
-      <div className="space-x-1">
+      <div className="space-x-2">
         <input
           checked={shop.sort === "highLow"}
           onChange={checkboxChange}

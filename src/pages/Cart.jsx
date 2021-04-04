@@ -43,7 +43,6 @@ export default function Cart() {
   console.log(cart.cart)
   return (
     <div>
-      {JSON.stringify(cart)}
       <div className="flex my-3 ">
         <h1 className="font-bold text-2xl text-center md:text-left">
           Your Cart

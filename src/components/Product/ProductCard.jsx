@@ -47,7 +47,19 @@ export default function ProductCard({ product }) {
   }
 
   return (
-    <div className="flex flex-col justify-between  md:shadow border border-gray-200 md:border-none md:rounded overflow-hidden w-full sm:w-48 md:w-60 bg-white relative pb-4 justify-self-start">
+    <div
+      className={clsx(
+        "flex flex-col justify-between  md:shadow border border-gray-200 md:border-none md:rounded overflow-hidden w-full sm:w-48 md:w-60 bg-white relative pb-4 justify-self-start"
+      )}
+    >
+      {!product.inStock && (
+        <div className="absolute cursor-not-allowed bg-white w-full h-full z-20 sm:w-48 md:w-60  top-1/2 left-1/2  transform -translate-x-1/2 -translate-y-1/2 opacity-50">
+          <div className="flex h-full items-center justify-center">
+            <p className="text-xl z-20 text-center ">Out of Stock</p>
+          </div>
+        </div>
+      )}
+
       <button
         className="absolute right-4 rounded-full top-3 bg-red-100 p-1  text-red-500 text-lg transform  focus:outline-none hover:scale-150 transition z-10"
         onClick={() => addToWishlist(product)}
@@ -58,7 +70,6 @@ export default function ProductCard({ product }) {
       <Link to={`/products/${product.id}/${getSlug(product.title)}`}>
         <div className=" relative">
           {!image && product.image && <Skeleton height="32" />}
-
           <img
             src={product.image}
             className={clsx(

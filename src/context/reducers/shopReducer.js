@@ -7,7 +7,11 @@ export const initialState = {
   error: false,
   sort: null,
   searchQuery: null,
-  brandFilter: null,
+  filters: {
+    brandFilter: null,
+    outOfStock: false,
+    expressDelivery: false,
+  },
 }
 export function shopReducer(state, action) {
   switch (action.type) {
@@ -43,10 +47,13 @@ export function shopReducer(state, action) {
         searchQuery: action.payload.query,
         data: [...state.data],
       }
-    case SHOP.FILTER_BY_BRAND:
+    case SHOP.FILTER:
       return {
         ...state,
-        brandFilter: action.payload.brand,
+        filters: {
+          ...state.filters,
+          [action.payload.filter]: !state.filters[action.payload.filter],
+        },
       }
     default:
       return { ...state }

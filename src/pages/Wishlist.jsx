@@ -21,7 +21,6 @@ export default function Wishlist() {
   }
   return (
     <>
-      {JSON.stringify(cart)}
       <div className="flex my-3 ">
         <h1 className="font-bold text-2xl text-center md:text-left">
           Your Wishlist

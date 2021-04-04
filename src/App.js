@@ -29,7 +29,17 @@ export default function App() {
 
   return (
     <>
-      <Toaster position="bottom-right" reverseOrder={false} />
+      <Toaster
+        position="bottom-right"
+        reverseOrder={false}
+        toastOptions={{
+          success: {
+            iconTheme: {
+              primary: "#059669",
+            },
+          },
+        }}
+      />
       <Router>
         <Header />
         <Switch>

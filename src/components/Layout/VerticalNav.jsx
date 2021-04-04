@@ -29,7 +29,7 @@ export default function VerticalNav({ links }) {
           <Sort />
           <hr />
           <p className="uppercase py-2 text-gray-700 tracking-wider text-sm">
-            Filter By Brand
+            Filter
           </p>
           <Filter />
         </div>

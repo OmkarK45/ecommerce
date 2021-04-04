@@ -15,19 +15,30 @@ export default function Home() {
   const { state: shop, dispatch: shopDispatch } = useShop()
   const { state: cart } = useCart()
 
-  const sortedData = getSortedData(shop.data, shop.sort)
-  console.log("shop", shop.data)
-
   function getSearchedItems(query) {
     return shop.data.filter((product) =>
       product.title.toLowerCase().includes(query) ? product : null
     )
   }
+  function getInStock(data) {
+    return shop.data.filter((item) => item.inStock)
+  }
 
-  console.log(getSearchedItems(shop.searchQuery))
+  function getFiltered(sortedData, { expressDelivery, outOfStock }) {
+    return sortedData
+      .filter((item) => {
+        if (expressDelivery === true) return item.expressDelivery === true
+        return item
+      })
+      .filter((item) => {
+        if (outOfStock === false) return item.inStock === true
+        return item
+      })
+  }
+  const sortedData = getSortedData(shop.data, shop.sort)
+  const filteredData = getFiltered(sortedData, shop.filters)
   return (
-    <>
-      <Carousel />
+    <div className="mt-3">
       <Layout>
         <SectionHeader title="Store" />
         {shop.searchQuery ? (
@@ -47,11 +58,12 @@ export default function Home() {
         ) : (
           <ProductLayout
             loading={shop?.loading}
-            productList={shop?.data}
+            // productList={shop?.data}
+            productList={filteredData}
             errorStatus={shop?.error}
           />
         )}
       </Layout>
-    </>
+    </div>
   )
 }
