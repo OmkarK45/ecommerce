@@ -1,5 +1,6 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css" // requires a
 import { Carousel } from "react-responsive-carousel"
+import { imgLinks } from "./imgLinks"
 export default function Slideshow() {
   return (
     <Carousel
@@ -9,17 +10,17 @@ export default function Slideshow() {
       autoPlay
       emulateTouch
       swipeable
-      dynamicHeight
     >
-      <div className="h-[918px]">
-        <img src="https://unsplash.it/400/200" className="opacity-[35]" />
-      </div>
-      <div>
-        <img src="https://unsplash.it/400/200" />
-      </div>
-      <div>
-        <img src="https://unsplash.it/400/200" />
-      </div>
+      {imgLinks.map((img, index) => {
+        return (
+          <div key={index} className="h-[200px] md:h-[280px] overflow-hidden">
+            <img
+              src={img.url}
+              className="max-w-full h-full   object-center object-cover"
+            />
+          </div>
+        )
+      })}
     </Carousel>
   )
 }

@@ -61,7 +61,7 @@ export default function ProductDetail() {
             <div className="flex items-center flex-1 mx-auto">
               <div className="md:w-5/6 md:mx-auto">
                 {!image && product.image && (
-                  <Skeleton height="full" width="3/4" />
+                  <Skeleton height="h-full" width="w-3/4" />
                 )}
                 <img
                   src={product.image}

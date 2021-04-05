@@ -1,13 +1,14 @@
 {
     "compilerOptions": {
-        "baseUrl": "./",
+        "baseUrl": ".",
         "target": "es2015",
         "module": "commonjs",
+        "jsx":"react",
         "allowSyntheticDefaultImports": false,
         "paths": {
-           "components/*" : ["src/components/*"],
-           "context/*" :["src/context/*"],
-           "pages/*" : ["src/pages/*"] 
+           "components/*" : ["./src/components/*"],
+           "context/*" :["./src/context/*"],
+           "pages/*" : ["./src/pages/*"] 
         }
     },
 }

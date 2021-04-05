@@ -1,10 +1,14 @@
 import Slideshow from "components/Carousel/Carousel"
+import Layout from "components/Layout/Layout"
+import SectionHeader from "components/ui/Section/SectionHeader"
 
 export default function Marketing() {
   return (
     <>
       <Slideshow />
-      <button className="bg-[#F7F700]">TEST</button>
+      <Layout>
+        <SectionHeader />
+      </Layout>
     </>
   )
 }

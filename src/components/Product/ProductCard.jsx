@@ -69,7 +69,7 @@ export default function ProductCard({ product }) {
 
       <Link to={`/products/${product.id}/${getSlug(product.title)}`}>
         <div className=" relative">
-          {!image && product.image && <Skeleton height="32" />}
+          {!image && product.image && <Skeleton height="h-32" />}
           <img
             src={product.image.slice(0, 4).concat("s") + product.image.slice(4)}
             className={clsx(

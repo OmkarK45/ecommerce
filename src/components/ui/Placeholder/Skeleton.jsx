@@ -1,7 +1,13 @@
+import clsx from "clsx"
+
 export default function Skeleton({ width = "auto", height }) {
   return (
     <div
-      className={`w-${width} h-${height} bg-gray-300 rounded-tr rounded-tl animate-pulse mx-auto `}
+      className={clsx(
+        "bg-gray-300 rounded-tr rounded-tl animate-pulse mx-auto",
+        width && width,
+        height && height
+      )}
     ></div>
   )
 }
