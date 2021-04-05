@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { HiOutlineFilter } from "react-icons/hi"
+import { FaRegTimesCircle } from "react-icons/fa"
 import { BiSort } from "react-icons/bi"
 import { List, ListItem } from "./../List/List"
 import { useShop } from "../../context/shopContext"
@@ -8,7 +9,9 @@ export function Overlay({ children, handleOverlayClose }) {
   return (
     <div className="absolute px-6  z-20 bottom-14 inset-x-0  bg-gray-100">
       <div className="absolute right-12">
-        <button onClick={handleOverlayClose}>X</button>
+        <button onClick={handleOverlayClose}>
+          <FaRegTimesCircle className="w-5 h-5 mt-3" />
+        </button>
       </div>
       {children}
     </div>
@@ -26,7 +29,7 @@ export default function MobileSort() {
   }
   return (
     <>
-      <div className="py-4 z-20 border border-red-800 grid place-items-center grid-cols-2 col-span-2 sm:col-span-full md:hidden bg-white sticky inset-x-0 bottom-0">
+      <div className=" z-20 mx-auto w-full grid grid-cols-2 col-span-2 sm:col-span-full md:hidden bg-white sticky inset-x-0 bottom-0">
         {sortOverlay ? (
           <Overlay handleOverlayClose={handleOverlayClose}>
             <List>
@@ -75,7 +78,7 @@ export default function MobileSort() {
         ) : null}
         <div>
           <button
-            className="flex uppercase items-center"
+            className="flex uppercase items-center h-full w-full py-4"
             onClick={() => {
               if (filterOverlay) {
                 setFilterOverlay(false)
@@ -83,12 +86,14 @@ export default function MobileSort() {
               setSortOverlay(!sortOverlay)
             }}
           >
-            <BiSort className="w-5 h-5 mr-2" /> Sort by
+            <div className="flex items-center mx-auto">
+              <BiSort className="w-5 h-5 mr-2" /> Sort by
+            </div>
           </button>
         </div>
         <div>
           <button
-            className="flex uppercase items-center"
+            className="flex uppercase items-center h-full w-full text-center"
             onClick={() => {
               if (sortOverlay) {
                 setSortOverlay(false)
@@ -96,7 +101,9 @@ export default function MobileSort() {
               setFilterOverlay(!filterOverlay)
             }}
           >
-            <HiOutlineFilter className="w-5 h-5 mr-2" /> Filter
+            <div className="flex items-center mx-auto">
+              <HiOutlineFilter className="w-5 h-5 mr-2" /> Filter
+            </div>
           </button>
         </div>
       </div>

@@ -3,14 +3,14 @@
 import { useEffect } from "react"
 import { Toaster } from "react-hot-toast"
 import { BrowserRouter as Router, Switch } from "react-router-dom"
-import { Header, Layout } from "components"
+import { Layout } from "components"
 import {
   Home,
   NotFound,
   Product,
   Cart,
   Wishlist,
-  Test,
+  Header,
   ProductDetailPage,
   Marketing,
 } from "./pages"
@@ -18,7 +18,6 @@ import FancyRoute from "./components/Route/Route"
 import { useShop } from "./context/shopContext"
 import axios from "axios"
 import { fetchProductsSuccess } from "context/actions/shopActions"
-
 export default function App() {
   const { state: shop, dispatch: shopDispatch } = useShop()
 
@@ -45,6 +44,7 @@ export default function App() {
         }}
       />
       <Router>
+        {/* <Header /> */}
         <Header />
         <Switch>
           <FancyRoute path="/" exact component={Marketing} />
@@ -58,8 +58,6 @@ export default function App() {
               exact
               component={ProductDetailPage}
             />
-            {/* Test route */}
-            <FancyRoute path="/test" exact component={Test} />
           </Layout>
           <FancyRoute path="*" component={NotFound} />
         </Switch>

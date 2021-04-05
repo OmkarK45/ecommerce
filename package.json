@@ -27,7 +27,6 @@
     "react-icons": "^4.2.0",
     "react-responsive-carousel": "^3.2.18",
     "react-router-dom": "^5.2.0",
-    "swiper": "^6.5.0",
     "tailwindcss": "^2.0.4"
   },
   "main": "index.js",
