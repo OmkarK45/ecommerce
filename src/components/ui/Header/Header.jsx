@@ -17,7 +17,7 @@ export default function Header() {
   }
   return (
     <>
-      <header className="bg-white shadow sticky top-0 z-30">
+      <header className="bg-white  shadow sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:divide-y lg:divide-gray-200 lg:px-8">
           <div className="relative h-16 flex justify-between">
             <div className="relative z-10 px-2 flex lg:px-0">
@@ -27,7 +27,9 @@ export default function Header() {
                 </Link>
               </div>
             </div>
-            <Searchbar />
+            <div className="hidden">
+              <Searchbar />
+            </div>
             <div className="hidden lg:relative lg:z-10 lg:ml-4 lg:flex lg:items-center lg:space-x-10">
               <WishlistIcon />
               <CartIcon />
@@ -49,6 +51,7 @@ export default function Header() {
         <nav className={clsx(!open && "hidden lg:hidden", open && "block")}>
           <Sidebar />
         </nav>
+        <Searchbar />
       </header>
     </>
   )
