@@ -6,6 +6,7 @@ import WishlistItem from "../components/Wishlist/WishlistItem"
 import { useCart } from "../context/cartContext"
 import { toast } from "react-hot-toast"
 import { handleAddToCart } from "../context/actions/cartActions"
+import SEO from "components/SEO"
 
 export default function Wishlist() {
   const { state: cart, dispatch: cartDispatch } = useCart()
@@ -21,6 +22,7 @@ export default function Wishlist() {
   }
   return (
     <>
+      <SEO title="Your Wishlist" />
       <div className="flex my-3 ">
         <h1 className="font-bold text-2xl text-center md:text-left">
           Your Wishlist
