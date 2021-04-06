@@ -5,6 +5,12 @@ import Logo from "components/ui/Logo"
 import Searchbar from "components/ui/Searchbar"
 import { WishlistIcon } from "components/Wishlist"
 import { CartIcon } from "components/Cart"
+import { AiOutlineCloseCircle } from "react-icons/ai"
+import {
+  HiOutlineMenuAlt1,
+  HiOutlineShoppingBag,
+  HiOutlineShoppingCart,
+} from "react-icons/hi"
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -66,22 +72,25 @@ export default function Header() {
                 as="button"
                 onClick={() => setMobileOpen(false)}
               >
-                <svg
-                  className="w-6 h-6 text-white"
-                  stroke="currentColor"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
+                <AiOutlineCloseCircle className="w-6 h-6 text-white" />
               </Transition.Child>
             </div>
-            <div className="flex items-center flex-shrink-0 px-4"></div>
+            <div className="flex flex-col items-between space-y-4 flex-shrink-0 px-4">
+              <Logo />
+              <hr />
+
+              <Link to="/cart" className="flex items-center space-x-3">
+                <HiOutlineShoppingCart className="text-xl" /> <p>Cart</p>
+              </Link>
+              <hr />
+              <Link to="/wishlist" className="flex items-center space-x-3">
+                <HiOutlineShoppingBag className="text-xl" /> <p>Wishlist</p>
+              </Link>
+              <hr />
+            </div>
+            <p className="text-gray-500 text-sm text-center mt-4">
+              &copy; 2021, Doge-Mart
+            </p>
           </Transition.Child>
           <div className="flex-shrink-0 w-14"></div>
         </Transition>
@@ -106,19 +115,7 @@ export default function Header() {
               aria-label="Open sidebar"
               onClick={() => setMobileOpen(true)}
             >
-              <svg
-                className="w-6 h-6 transition duration-150 ease-in-out"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
+              <HiOutlineMenuAlt1 className="w-6 h-6 transition duration-150 ease-in-out" />
             </button>
           </div>
           <div className="block sm:hidden">

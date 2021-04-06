@@ -2,16 +2,23 @@ import { useShop } from "../../context/shopContext"
 import { useState } from "react"
 import { HiOutlineSearch } from "react-icons/hi"
 import { handleSearch } from "./../../context/actions/shopActions"
+import { useHistory, useLocation } from "react-router"
 
 export default function Searchbar() {
   const [searchQuery, setSearchQuery] = useState("")
   const { dispatch: shopDispatch } = useShop()
+  const location = useLocation()
+  const history = useHistory()
+  console.log(location)
 
   function handleInputChange(e) {
     setSearchQuery(e.target.value)
   }
   function handleKeyDown(e) {
     if (e.key === "Enter") {
+      if (location.pathname !== "/store") {
+        history.push("/store")
+      }
       shopDispatch(handleSearch(searchQuery))
     }
   }

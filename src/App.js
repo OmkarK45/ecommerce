@@ -3,14 +3,13 @@
 import { useEffect } from "react"
 import { Toaster } from "react-hot-toast"
 import { BrowserRouter as Router, Switch } from "react-router-dom"
-import { Layout } from "components"
+import { Header, Layout } from "components"
 import {
   Home,
   NotFound,
   Product,
   Cart,
   Wishlist,
-  Header,
   ProductDetailPage,
   Marketing,
 } from "./pages"
