@@ -3,16 +3,6 @@ import { useShop } from "context/shopContext"
 
 export default function Filter() {
   const { state: shop, dispatch: shopDispatch } = useShop()
-  function handleChange(filter) {
-    switch (filter) {
-      case "outOfStock":
-        return shopDispatch(handleFilter(filter))
-      case "expressDelivery":
-        return shopDispatch(handleFilter(filter))
-      default:
-        return {}
-    }
-  }
   return (
     <div className="flex flex-col justify-center space-y-3 pb-3">
       <div className="space-x-2">
@@ -20,7 +10,7 @@ export default function Filter() {
           type="checkbox"
           id="outOfStock"
           value="outOfStock"
-          onChange={() => handleChange("outOfStock")}
+          onChange={() => shopDispatch(handleFilter("outOfStock"))}
           checked={shop.filters.outOfStock}
         />
         <label
@@ -35,7 +25,7 @@ export default function Filter() {
           type="checkbox"
           id="expressDelivery"
           value="expressDelivery"
-          onChange={() => handleChange("expressDelivery")}
+          onChange={() => shopDispatch(handleFilter("expressDelivery"))}
           checked={shop.filters.expressDelivery}
         />
         <label

@@ -1,4 +1,4 @@
-import { handleSort } from "../context/actions/shopActions"
+import { handleFilter, handleSort } from "../context/actions/shopActions"
 
 // @Note to self -> data is array, sortMethod is string
 export function getSortedData(data, sortMethod) {
@@ -30,6 +30,17 @@ export function getSortDispatch(e) {
       return handleSort(null)
     default:
       //   This could be better
+      return {}
+  }
+}
+
+export function getFilterDispatch(filter) {
+  switch (filter) {
+    case "outOfStock":
+      return handleFilter(filter)
+    case "expressDelivery":
+      return handleFilter(filter)
+    default:
       return {}
   }
 }

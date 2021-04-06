@@ -1,10 +1,12 @@
 import { useState } from "react"
-import { HiOutlineFilter } from "react-icons/hi"
-import { FaRegTimesCircle } from "react-icons/fa"
 import { BiSort } from "react-icons/bi"
-import { List, ListItem } from "./../List/List"
+import { FaRegTimesCircle } from "react-icons/fa"
+import { HiOutlineFilter } from "react-icons/hi"
+
+import { getFilterDispatch, getSortDispatch } from "../../common/helpers"
 import { useShop } from "../../context/shopContext"
-import { getSortDispatch } from "../../common/helpers"
+import { List, ListItem } from "./../List/List"
+
 export function Overlay({ children, handleOverlayClose }) {
   return (
     <div className="absolute px-6  z-20 bottom-14 inset-x-0  bg-gray-100">
@@ -72,7 +74,13 @@ export default function MobileSort() {
         {filterOverlay ? (
           <Overlay handleOverlayClose={handleOverlayClose}>
             <List>
-              <ListItem>Include out of stock</ListItem>
+              <ListItem>
+                <button
+                  onClick={() => shopDispatch(getFilterDispatch("outOfStock"))}
+                >
+                  Include out of stock
+                </button>
+              </ListItem>
             </List>
           </Overlay>
         ) : null}

@@ -62,7 +62,7 @@ export default function Checkout() {
                 <p className="font-bold">FREE</p>
               </div>
             </div>
-            <div className="border-t-2 pt-4 flex items-center space-x-4">
+            <div className="border-t-2  pt-4 flex items-center space-x-4">
               <div className="flex-1  min-w-0">
                 <p className="text-base  text-gray-900 truncate">
                   Total Amount

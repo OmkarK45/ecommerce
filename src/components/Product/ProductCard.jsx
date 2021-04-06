@@ -53,8 +53,8 @@ export default function ProductCard({ product }) {
       )}
     >
       {!product.inStock && (
-        <div className="absolute cursor-not-allowed bg-white w-full h-full z-20 sm:w-48 md:w-60  top-1/2 left-1/2  transform -translate-x-1/2 -translate-y-1/2 opacity-50">
-          <div className="flex h-full items-center justify-center">
+        <div className="absolute cursor-not-allowed bg-white w-full h-full z-20 sm:w-48 md:w-60 opacity-50">
+          <div className="flex h-1/2 items-center justify-center">
             <p className="text-xl z-20 text-center ">Out of Stock</p>
           </div>
         </div>
