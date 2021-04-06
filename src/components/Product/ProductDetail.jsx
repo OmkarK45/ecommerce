@@ -16,6 +16,7 @@ import { useCart } from "context/cartContext"
 import { handleAddToCart } from "./../../context/actions/cartActions"
 import { toast } from "react-hot-toast"
 import ProductDetailSkeleton from "components/ui/Placeholder/ProductDetailSkeleton"
+import SEO from "components/SEO"
 
 export default function ProductDetail() {
   const [product, setProduct] = useState({})
@@ -52,6 +53,8 @@ export default function ProductDetail() {
   console.log(product?.offers)
   return (
     <>
+      <SEO title={product?.title} />
+
       <Link to="/store" className="block my-3">
         <Button>Back to store</Button>
       </Link>

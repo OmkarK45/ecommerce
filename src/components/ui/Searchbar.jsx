@@ -9,7 +9,6 @@ export default function Searchbar() {
   const { dispatch: shopDispatch } = useShop()
   const location = useLocation()
   const history = useHistory()
-  console.log(location)
 
   function handleInputChange(e) {
     setSearchQuery(e.target.value)
@@ -40,6 +39,7 @@ export default function Searchbar() {
                 value={searchQuery}
                 onChange={handleInputChange}
                 onKeyDown={handleKeyDown}
+                autoComplete="false"
               />
             </div>
           </div>

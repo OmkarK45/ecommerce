@@ -4,12 +4,15 @@ import App from "./App"
 import "./index.css"
 import { ShopProvider } from "./context/shopContext"
 import server from "./backend/server"
+import { HelmetProvider } from "react-helmet-async"
 server()
 ReactDOM.render(
-  <ShopProvider>
-    <CartProvider>
-      <App />
-    </CartProvider>
-  </ShopProvider>,
+  <HelmetProvider>
+    <ShopProvider>
+      <CartProvider>
+        <App />
+      </CartProvider>
+    </ShopProvider>
+  </HelmetProvider>,
   document.getElementById("root")
 )

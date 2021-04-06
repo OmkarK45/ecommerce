@@ -23,7 +23,12 @@ export default function Filter() {
           onChange={() => handleChange("outOfStock")}
           checked={shop.filters.outOfStock}
         />
-        <label htmlFor="outOfStock">Include out of stock</label>
+        <label
+          htmlFor="outOfStock"
+          className="inline-flex mr-2 whitespace-nowrap text-sm font-medium text-gray-700"
+        >
+          Include out of stock
+        </label>
       </div>
       <div className="space-x-2">
         <input
@@ -33,7 +38,12 @@ export default function Filter() {
           onChange={() => handleChange("expressDelivery")}
           checked={shop.filters.expressDelivery}
         />
-        <label htmlFor="outOfStock">Express Delivery</label>
+        <label
+          htmlFor="outOfStock"
+          className="inline-flex mr-2 whitespace-nowrap text-sm font-medium text-gray-700"
+        >
+          Express Delivery
+        </label>
       </div>
     </div>
   )

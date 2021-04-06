@@ -11,7 +11,7 @@ export default function server() {
       product: Factory.extend(Product),
     },
     seeds(server) {
-      server.createList("product", 10)
+      server.createList("product", 20)
     },
     routes() {
       this.namespace = "api"
