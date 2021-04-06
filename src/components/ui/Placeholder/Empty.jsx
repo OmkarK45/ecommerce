@@ -11,7 +11,7 @@ export default function Empty({ label, reference }) {
           <p className="text-gray-500">
             There are no items in your {reference}.
           </p>
-          <Link to="/">
+          <Link to="/store">
             <Button variant="primary">Go Shopping</Button>
           </Link>
         </div>

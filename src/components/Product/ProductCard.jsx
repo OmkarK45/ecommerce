@@ -90,9 +90,8 @@ export default function ProductCard({ product }) {
           <p className="text-base md:text-base font-semibold truncate">
             {product.title}
           </p>
-          <p className="text-gray-500 text-xs md:text-sm">
-            {/* {product.productDescription.split(/,|\./)[0]} */}
-            Lorem ipsum dolor sit amet.
+          <p className="text-gray-500 text-xs md:text-sm truncate">
+            {product.productDescription.split(/,|\./)[0]}
           </p>
           <div className="flex items-center space-x-1">
             <p className="text-md md:text-xl font-bold">
