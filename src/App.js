@@ -1,6 +1,4 @@
 /* eslint-disable no-unused-vars */
-//@TODO-> Clean imports to use path alias
-import { useEffect } from 'react'
 import { Toaster } from 'react-hot-toast'
 import { BrowserRouter as Router, Switch } from 'react-router-dom'
 import { Header, Layout } from 'components'
@@ -15,12 +13,13 @@ import {
 } from './pages'
 import FancyRoute from './components/Route/Route'
 import { useShop } from './context/shopContext'
-import axios from 'axios'
 import { fetchProductsSuccess } from 'context/actions/shopActions'
 
 // new code
 import { useQuery } from 'react-query'
 import { getProducts } from 'services/axios'
+import Login from 'components/Auth/Login'
+import Register from 'components/Auth/Register'
 
 export default function App() {
 	const { state: shop, dispatch: shopDispatch } = useShop()
@@ -36,8 +35,7 @@ export default function App() {
 	return (
 		<>
 			<div>
-				{' '}
-				<pre>{JSON.stringify(data, null, 2)}</pre>{' '}
+				<pre>{JSON.stringify(data, null, 2)}</pre>
 			</div>
 			<Toaster
 				position="bottom-right"
@@ -51,11 +49,12 @@ export default function App() {
 				}}
 			/>
 			<Router>
-				{/* <Header /> */}
 				<Header />
 				<Switch>
 					<FancyRoute path="/" exact component={Marketing} />
 					<FancyRoute path="/store" exact component={Home} />
+					<FancyRoute path="/auth/login" exact component={Login} />
+					<FancyRoute path="/auth/register" exact component={Register} />
 					<Layout>
 						<FancyRoute path="/product" exact component={Product} />
 						<FancyRoute path="/cart" exact component={Cart} />

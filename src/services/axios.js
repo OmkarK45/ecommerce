@@ -6,3 +6,38 @@ export async function getProducts() {
 	)
 	return response.data
 }
+
+/**
+ * @param productId - string
+ * */
+export async function getProduct(productId) {
+	const response = await axios.get(
+		`http://localhost:5000/api/products/${productId}`
+	)
+	return response.data
+}
+
+/**
+ * @param credentials object
+ *
+ */
+export async function login({ email, password }) {
+	const response = await axios.post('http://localhost:5000/api/auth/sign-in', {
+		email,
+		password,
+	})
+	return response.data
+}
+
+/**
+ * @param credentials object
+ * */
+export async function register({ firstName, lastName, email, password }) {
+	const response = await axios.post('http://localhost:5000/api/auth/sign-up', {
+		firstName,
+		lastName,
+		email,
+		password,
+	})
+	return response.data
+}

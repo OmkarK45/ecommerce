@@ -1,4 +1,4 @@
-import { ImSpinner3 } from "react-icons/im"
+import { CgSpinner } from 'react-icons/cg'
 export default function Spinner() {
-  return <ImSpinner3 className="text-gray-500 h-6 w-6 animate-spin" />
+	return <CgSpinner className="w-6 h-6 text-gray-500 animate-spin" />
 }
