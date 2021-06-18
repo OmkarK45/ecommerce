@@ -53,22 +53,22 @@ export default function ProductCard({ product }) {
       )}
     >
       {!product.inStock && (
-        <div className="absolute cursor-not-allowed bg-white w-full h-full z-20 sm:w-48 md:w-60 opacity-50">
-          <div className="flex h-1/2 items-center justify-center">
-            <p className="text-xl z-20 text-center ">Out of Stock</p>
+        <div className="absolute z-20 w-full h-full bg-white opacity-50 cursor-not-allowed sm:w-48 md:w-60">
+          <div className="flex items-center justify-center h-1/2">
+            <p className="z-20 text-xl text-center ">Out of Stock</p>
           </div>
         </div>
       )}
 
       <button
-        className="absolute right-4 rounded-full top-3 bg-red-100 p-1  text-red-500 text-lg transform  focus:outline-none hover:scale-150 transition z-10"
+        className="absolute z-10 p-1 text-lg text-red-500 transition transform bg-red-100 rounded-full right-4 top-3 focus:outline-none hover:scale-150"
         onClick={() => addToWishlist(product)}
       >
         {wishListed.length === 0 ? <HiOutlineHeart /> : <HiHeart />}
       </button>
 
       <Link to={`/products/${product.id}/${getSlug(product.title)}`}>
-        <div className=" relative">
+        <div className="relative ">
           {!image && product.image && <Skeleton height="h-32" />}
 
           <img
@@ -81,34 +81,34 @@ export default function ProductCard({ product }) {
             onLoad={handleImageLoad}
           />
 
-          <div className="flex items-center absolute z-10 -bottom-2 right-4 bg-green-600 px-1 text-white text-sm rounded">
+          <div className="absolute z-10 flex items-center px-1 text-sm text-white bg-green-600 rounded -bottom-2 right-4">
             <HiStar /> {product.ratings}
           </div>
         </div>
 
-        <div className="space-y-2 mt-2 px-2 md:px-4 flex-grow ">
-          <p className="text-base md:text-base font-semibold truncate">
+        <div className="flex-grow px-2 mt-2 space-y-2 md:px-4 ">
+          <p className="text-base font-semibold truncate md:text-base">
             {product.title}
           </p>
-          <p className="text-gray-500 text-xs md:text-sm truncate">
+          <p className="text-xs text-gray-500 truncate md:text-sm">
             {product.productDescription.split(/,|\./)[0]}
           </p>
           <div className="flex items-center space-x-1">
-            <p className="text-md md:text-xl font-bold">
+            <p className="font-bold text-md md:text-xl">
               ₹ {parseInt(product.price).toLocaleString("en-IN")}
             </p>
-            <p className="text-gray-500 line-through text-xs">₹ 19,999</p>
+            <p className="text-xs text-gray-500 line-through">₹ 19,999</p>
           </div>
         </div>
       </Link>
-      <div className="flex flex-col  space-y-2 space-y-2 mt-2 px-2 md:px-4">
+      <div className="flex flex-col px-2 mt-2 space-y-2 md:px-4">
         <Button
           variant="primary"
           className="opacity-90"
           onClick={() => addToCart(product)}
           size="sm"
         >
-          <HiOutlineShoppingCart className="mr-2 h-4 w-4" />
+          <HiOutlineShoppingCart className="w-4 h-4 mr-2" />
           Add To Cart
         </Button>
       </div>

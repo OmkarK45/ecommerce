@@ -58,8 +58,9 @@ export default function ProductDetail() {
       <Link to="/store" className="block my-3">
         <Button>Back to store</Button>
       </Link>
+      {/* this needs some thinking */}
       {product.offers ? (
-        <div className="container rounded shadow bg-white mx-auto px-4 py-4 sm:px-6 lg:px-8 lg:py-10 mb-10">
+        <div className="container px-4 py-4 mx-auto mb-10 bg-white rounded shadow sm:px-6 lg:px-8 lg:py-10">
           <div className="flex flex-col space-y-3 md:flex-row">
             <div className="flex items-center flex-1 mx-auto">
               <div className="md:w-5/6 md:mx-auto">
@@ -77,13 +78,13 @@ export default function ProductDetail() {
                 />
               </div>
             </div>
-            <div className="flex flex-1 flex-col justify-center space-y-3">
+            <div className="flex flex-col justify-center flex-1 space-y-3">
               <div className="space-y-2.5">
-                <h1 className="text-xl md:text-2xl font-semibold">
+                <h1 className="text-xl font-semibold md:text-2xl">
                   {product?.title}
                 </h1>
                 <p className="text-gray-700">By {product.brand}</p>
-                <p className="text-gray-500 text-sm">
+                <p className="text-sm text-gray-500">
                   {product?.productDescription}
                 </p>
               </div>
@@ -92,7 +93,7 @@ export default function ProductDetail() {
                   <p className="text-2xl font-bold">₹ {product.price}</p>
                   <p className="text-gray-500 line-through">₹ 19,999</p>
                 </div>
-                <span className="flex items-center bg-green-600 px-1 text-white text-sm space-x-1 rounded">
+                <span className="flex items-center px-1 space-x-1 text-sm text-white bg-green-600 rounded">
                   <HiStar /> {product.ratings}
                   <p className="text-xs">
                     ({parseInt(product.reviewers).toLocaleString("en-IN")}{" "}
@@ -101,14 +102,14 @@ export default function ProductDetail() {
                 </span>
               </div>
               <div className="space-y-4">
-                <div className="flex flex-col space-y-2 mt-3">
+                <div className="flex flex-col mt-3 space-y-2">
                   <Divider label="Offers" />
                   <ul>
                     {product?.offers.map((offer, i) => {
                       return (
                         <li key={i}>
                           <div className="flex items-center space-x-3">
-                            <MdLocalOffer className="text-blue-700 w-5 h-5" />
+                            <MdLocalOffer className="w-5 h-5 text-blue-700" />
 
                             <p>{offer}</p>
                           </div>
@@ -121,7 +122,7 @@ export default function ProductDetail() {
                       <Divider label="Perks" />
                       <ul>
                         <li className="flex items-center space-x-3">
-                          <HiCheckCircle className="text-green-700 w-5 h-5" />
+                          <HiCheckCircle className="w-5 h-5 text-green-700" />
                           <p>Express Delivery available.</p>
                         </li>
                       </ul>
@@ -129,14 +130,14 @@ export default function ProductDetail() {
                   ) : null}
                 </div>
               </div>
-              <div className="flex flex-col md:space-x-2 md:flex-row justify-center space-y-2 md:space-y-0">
+              <div className="flex flex-col justify-center space-y-2 md:space-x-2 md:flex-row md:space-y-0">
                 <Button
                   size="md"
                   variant="primary"
                   fullWidth
                   className="uppercase"
                 >
-                  <HiOutlineShoppingBag className="mr-2 h-4 w-4" /> Buy Now
+                  <HiOutlineShoppingBag className="w-4 h-4 mr-2" /> Buy Now
                 </Button>
                 <Button
                   size="md"
@@ -144,7 +145,7 @@ export default function ProductDetail() {
                   className="uppercase"
                   onClick={addToCart}
                 >
-                  <HiOutlineShoppingCart className="mr-2 h-4 w-4" />
+                  <HiOutlineShoppingCart className="w-4 h-4 mr-2" />
                   Add to Cart
                 </Button>
               </div>

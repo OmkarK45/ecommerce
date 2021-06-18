@@ -22,13 +22,13 @@ export default function Slideshow() {
         return (
           <div key={index} className="h-[200px] md:h-[280px] overflow-hidden">
             {!image && (
-              <div className="flex items-center justify-center bg-gray-100 h-full">
+              <div className="flex items-center justify-center h-full bg-gray-100">
                 <Spinner />
               </div>
             )}
             <img
               src={img.url}
-              className="max-w-full h-full object-center object-cover"
+              className="object-cover object-center h-full max-w-full"
               onLoad={handleImageLoad}
             />
           </div>
