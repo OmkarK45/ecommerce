@@ -5,6 +5,9 @@ import Input from 'components/ui/Input'
 import { Link } from 'react-router-dom'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { useMutation } from 'react-query'
+import { login } from 'services/axios'
+import toast from 'react-hot-toast'
 
 const loginSchema = yup.object().shape({
 	email: yup.string().email().required('Email is required.'),
@@ -25,8 +28,16 @@ export default function Login() {
 		mode: 'onBlur',
 	})
 
+	const { isLoading, mutate } = useMutation(login)
+
 	// usequery mutation with loading
-	const onSubmit = (data) => console.log(data)
+	const onSubmit = (data) => {
+		console.log(data)
+		mutate(data, {
+			onError: (error) => toast.error(JSON.stringify({ error: error.message })),
+			onSuccess: (data) => toast.success(JSON.stringify(data)),
+		})
+	}
 
 	return (
 		<>
@@ -51,7 +62,7 @@ export default function Login() {
 							variant="primary"
 							fullWidth
 							type="submit"
-							// isLoading={true}
+							isLoading={isLoading && true}
 						>
 							Submit
 						</Button>
