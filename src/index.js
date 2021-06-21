@@ -6,6 +6,7 @@ import { ShopProvider } from './context/shopContext'
 import { HelmetProvider } from 'react-helmet-async'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
+import { AuthProvider } from 'components/Auth/Auth'
 
 // remove this later
 // server()
@@ -20,14 +21,16 @@ const client = new QueryClient({
 
 ReactDOM.render(
 	<QueryClientProvider client={client}>
-		<HelmetProvider>
-			<ShopProvider>
-				<CartProvider>
-					<App />
-					<ReactQueryDevtools />
-				</CartProvider>
-			</ShopProvider>
-		</HelmetProvider>
+		<AuthProvider>
+			<HelmetProvider>
+				<ShopProvider>
+					<CartProvider>
+						<App />
+						<ReactQueryDevtools />
+					</CartProvider>
+				</ShopProvider>
+			</HelmetProvider>
+		</AuthProvider>
 	</QueryClientProvider>,
 	document.getElementById('root')
 )

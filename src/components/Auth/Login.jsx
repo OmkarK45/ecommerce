@@ -6,41 +6,40 @@ import { Link } from 'react-router-dom'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useMutation } from 'react-query'
-import { login } from 'services/axios'
-import toast from 'react-hot-toast'
+import { useAuth } from './Auth'
 
+// TODO : move this elsewhere
 const loginSchema = yup.object().shape({
-	email: yup.string().email().required('Email is required.'),
-	password: yup
+	email: yup
 		.string()
-		.required('Password is required.')
-		.min(5, 'Password must be atleast 5 characters long.')
-		.max(50),
+		.email('Email must be a valid email.')
+		.required('Email is required.'),
+	password: yup.string().required('Password is required.'),
 })
 
 export default function Login() {
+	const { user, login } = useAuth()
+
 	const {
 		register,
 		handleSubmit,
-		formState: { errors, isValid },
+		formState: { errors, isDirty },
 	} = useForm({
 		resolver: yupResolver(loginSchema),
-		mode: 'onBlur',
 	})
 
 	const { isLoading, mutate } = useMutation(login)
 
 	// usequery mutation with loading
 	const onSubmit = (data) => {
-		console.log(data)
 		mutate(data, {
-			onError: (error) => toast.error(JSON.stringify({ error: error.message })),
-			onSuccess: (data) => toast.success(JSON.stringify(data)),
+			onSuccess: (data) => console.log(data),
 		})
 	}
 
 	return (
 		<>
+			{user && <pre>{JSON.stringify(user, null, 2)}</pre>}
 			<div className="min-h-screen">
 				<AuthContainer title="Sign in">
 					<form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -58,7 +57,7 @@ export default function Login() {
 							error={errors.password?.message}
 						/>
 						<Button
-							disabled={!isValid && true}
+							disabled={!isDirty && true}
 							variant="primary"
 							fullWidth
 							type="submit"
