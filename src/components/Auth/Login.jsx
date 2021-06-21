@@ -70,6 +70,7 @@ export default function Login() {
 						<p>
 							Don&lsquo;t have an account ?{' '}
 							<Link to="/auth/register"> Sign up</Link>
+							<Link to="/cart"> Cart</Link>
 						</p>
 					</div>
 				</AuthContainer>

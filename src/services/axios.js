@@ -66,9 +66,10 @@ export async function register({ firstName, lastName, email, password }) {
  * */
 
 export async function getUser() {
-	return await ApiClient.get('/auth/user-info', {
+	const response = await ApiClient.get('/auth/user-info', {
 		withCredentials: true,
 	})
+	return response.data.user
 }
 
 /**

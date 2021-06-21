@@ -20,6 +20,7 @@ import { useQuery } from 'react-query'
 import { getProducts } from 'services/axios'
 import Login from 'components/Auth/Login'
 import Register from 'components/Auth/Register'
+import { PrivateRoute } from 'components/Route/PrivateRoute'
 
 export default function App() {
 	const { state: shop, dispatch: shopDispatch } = useShop()
@@ -57,7 +58,9 @@ export default function App() {
 					<FancyRoute path="/auth/register" exact component={Register} />
 					<Layout>
 						<FancyRoute path="/product" exact component={Product} />
-						<FancyRoute path="/cart" exact component={Cart} />
+						<PrivateRoute>
+							<FancyRoute path="/cart" exact component={Cart} />
+						</PrivateRoute>
 						<FancyRoute path="/wishlist" exact component={Wishlist} />
 						<FancyRoute
 							path="/products/:id/:slug"
