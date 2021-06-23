@@ -66,10 +66,15 @@ export async function register({ firstName, lastName, email, password }) {
  * */
 
 export async function getUser() {
+	let user = null
+
 	const response = await ApiClient.get('/auth/user-info', {
 		withCredentials: true,
 	})
-	return response.data.user
+	if (response.status === 200) {
+		return response.data.user
+	}
+	return user
 }
 
 /**

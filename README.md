@@ -8,5 +8,5 @@
 
 Todos
 
-- [] - Create <PrivateRoute/> component
+- [x] - Create <PrivateRoute/> component
 - [] - Handle cart and wishlist fetching

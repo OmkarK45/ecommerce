@@ -6,7 +6,7 @@ import { ShopProvider } from './context/shopContext'
 import { HelmetProvider } from 'react-helmet-async'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
-import { AuthProvider } from 'components/Auth/Auth'
+import { AuthProvider } from 'context/authContext'
 
 // remove this later
 // server()

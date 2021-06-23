@@ -2,11 +2,13 @@ import { useForm } from 'react-hook-form'
 import AuthContainer from './AuthContainer'
 import Button from 'components/ui/Button/Button'
 import Input from 'components/ui/Input'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useMutation } from 'react-query'
-import { useAuth } from './Auth'
+import { useAuth } from 'context/authContext'
+import toast from 'react-hot-toast'
+import { login } from 'services/axios'
 
 // TODO : move this elsewhere
 const loginSchema = yup.object().shape({
@@ -18,7 +20,7 @@ const loginSchema = yup.object().shape({
 })
 
 export default function Login() {
-	const { user, login } = useAuth()
+	const { user } = useAuth()
 
 	const {
 		register,
@@ -30,10 +32,15 @@ export default function Login() {
 
 	const { isLoading, mutate } = useMutation(login)
 
+	const history = useHistory()
+
 	// usequery mutation with loading
 	const onSubmit = (data) => {
 		mutate(data, {
-			onSuccess: (data) => console.log(data),
+			onSuccess: () => {
+				history.push('/store')
+			},
+			onError: () => toast.error('Something went wrong. Please try again.'),
 		})
 	}
 

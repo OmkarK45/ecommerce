@@ -1,9 +1,8 @@
-import { useAuth } from 'components/Auth/Auth'
+import { useAuth } from 'context/authContext'
 import { Route, Redirect } from 'react-router-dom'
 
 export function PrivateRoute({ children, ...rest }) {
 	const { user } = useAuth()
-
 	return (
 		<>
 			{user.id ? (
