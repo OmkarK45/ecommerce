@@ -2,32 +2,46 @@ import { useForm } from 'react-hook-form'
 import AuthContainer from './AuthContainer'
 import Button from 'components/ui/Button/Button'
 import Input from 'components/ui/Input'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { useMutation } from 'react-query'
+import toast from 'react-hot-toast'
 
+// move this elsewhere
 const registerSchema = yup.object().shape({
 	firstName: yup.string().required('First Name is required.'),
 	lastName: yup.string().required('Last name is required.'),
-	email: yup.string().email().required('Email is required.'),
+	email: yup
+		.string()
+		.email('Make sure email is valid.')
+		.required('Email is required.'),
 	password: yup
 		.string()
 		.required('Password is required.')
 		.min(5, 'Password must be atleast 5 characters long.')
-		.max(50),
+		.max(50, 'Oof that one is bit too long.'),
 })
 
 export default function Register() {
 	const {
 		register,
 		handleSubmit,
-		formState: { errors, isValid },
+		formState: { errors, isDirty },
 	} = useForm({
 		resolver: yupResolver(registerSchema),
-		mode: 'onBlur',
 	})
 
-	const onSubmit = (data) => console.log(data)
+	const history = useHistory()
+
+	const { isLoading, mutate } = useMutation(register)
+
+	const onSubmit = (data) => {
+		mutate(data, {
+			onSuccess: history.push('/store'),
+			onError: toast.error('Something went wrong. Please try again.'),
+		})
+	}
 
 	return (
 		<>
@@ -66,19 +80,18 @@ export default function Register() {
 						/>
 
 						<Button
-							disabled={!isValid && true}
+							disabled={!isDirty && true}
 							variant="primary"
 							fullWidth
 							type="submit"
-							// isLoading={true}
+							isLoading={isLoading && true}
 						>
 							Submit
 						</Button>
 					</form>
 					<div className="mt-3">
 						<p>
-							Don&lsquo;t have an account ?{' '}
-							<Link to="/auth/register"> Sign up</Link>
+							Already have an account ? <Link to="/auth/login"> Sign in</Link>
 						</p>
 					</div>
 				</AuthContainer>
